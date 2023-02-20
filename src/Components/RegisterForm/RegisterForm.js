@@ -8,9 +8,18 @@ export default function RegisterForm(props) {
   return (
     <form>
       <label>Name</label>
-      <input type="name" placeholder="Enter your name" id="name" name="name" />
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        type="name"
+        placeholder="Enter your name"
+        id="name"
+        name="name"
+      />
       <label>Email</label>
       <input
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         type="email"
         placeholder="Enter your email"
         id="email"
@@ -18,6 +27,8 @@ export default function RegisterForm(props) {
       />
       <label>Password</label>
       <input
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         type="password"
         placeholder="********"
         id="password"
