@@ -1,14 +1,10 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import css from "./Home.module.css";
 
 import AuthModal from "../../Components/AuthModal/AuthModal";
 
 export default function Home() {
   const [modal, setModal] = useState(false);
-
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // };
 
   return (
     <div>
@@ -22,23 +18,21 @@ export default function Home() {
             quests and exciting challenges.
           </p>
         </div>
-        <form action="" className={css.login_form}>
+        <div className={css.login_form}>
           <label className={css.login_label}>
-            Choose your name to sign up or log in
+            Choose your email to sign up or log in
           </label>
           <input type="text" className={css.login_input} />
           <button
             type="submit"
             className={css.login_go}
-            onClick={() => {
-              setModal(true);
-            }}
+            onClick={() => setModal(true)}
           >
             go!
           </button>
-        </form>
+        </div>
       </div>
-      {modal && <AuthModal setModal={setModal} />}
+      <AuthModal open={modal} onClose={() => setModal(false)} />
     </div>
   );
 }

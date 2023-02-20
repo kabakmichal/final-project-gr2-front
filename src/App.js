@@ -5,7 +5,7 @@ import AuthModal from "./Components/AuthModal/AuthModal";
 function App() {
   return (
     <div>
-      <AuthModal />
+      <Home />
     </div>
   );
 }

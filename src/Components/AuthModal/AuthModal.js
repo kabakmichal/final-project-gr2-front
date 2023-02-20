@@ -1,34 +1,28 @@
 import React, { useState } from "react";
 import css from "./AuthModal.module.css";
 
-export default function AuthModal({ setModal }) {
-  //   const [modal, setModal] = useState(false);
+import LoginForm from "../LoginForm/LoginForm";
+import RegisterForm from "../RegisterForm/RegisterForm";
 
-  //   const toggleModal = () => {
-  //     setModal(!modal);
-  //   };
-
+export default function AuthModal({ open, onClose }) {
+  const [currentForm, setCurrentForm] = useState("login");
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  };
+  if (!open) return null;
   return (
-    <div className={css.auth_modal}>
-      <div className={css.overlay}></div>
-      <div className={css.auth_form}>
-        <form>
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            id="email"
-            name="email"
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="********"
-            id="password"
-            name="password"
-          />
-          <button className={css.modal_submit}>Login</button>
-        </form>
+    <div onClick={onClose} className={css.overlay}>
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className={css.modalContainer}
+      >
+        {currentForm === "login" ? (
+          <LoginForm onFormSwitch={toggleForm} />
+        ) : (
+          <RegisterForm onFormSwitch={toggleForm} />
+        )}
       </div>
     </div>
   );
