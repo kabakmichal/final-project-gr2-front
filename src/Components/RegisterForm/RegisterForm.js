@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import css from "./RegisterForm.module.css";
 
 export default function RegisterForm(props) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(localStorage.getItem("emailValue"));
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   return (

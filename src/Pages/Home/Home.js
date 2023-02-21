@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import css from "./Home.module.css";
 
 import AuthModal from "../../Components/AuthModal/AuthModal";
 
 export default function Home() {
   const [modal, setModal] = useState(false);
+  const data = useRef();
+  const handleClick = () => {
+    setModal(true);
+    localStorage.setItem("emailValue", data.current.value);
+  };
 
   return (
     <div>
@@ -22,12 +27,8 @@ export default function Home() {
           <label className={css.login_label}>
             Choose your email to sign up or log in
           </label>
-          <input type="text" className={css.login_input} />
-          <button
-            type="submit"
-            className={css.login_go}
-            onClick={() => setModal(true)}
-          >
+          <input type="text" className={css.login_input} ref={data} />
+          <button type="submit" className={css.login_go} onClick={handleClick}>
             go!
           </button>
         </div>
