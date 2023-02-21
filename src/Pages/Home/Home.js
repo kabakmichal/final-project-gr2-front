@@ -17,6 +17,7 @@ export default function Home() {
             Questify will turn your life into a thrilling game full of amazing
             quests and exciting challenges.
           </p>
+          <p>Test Ada</p>
         </div>
         <div className={css.login_form}>
           <label className={css.login_label}>
