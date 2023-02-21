@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import css from "./LoginForm.module.css";
 
 export default function LoginForm(props) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(localStorage.getItem("emailValue"));
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
