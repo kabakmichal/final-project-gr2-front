@@ -11,9 +11,12 @@ export const AddButton = () => {
 
   return (
     <>
-      <button type="button" className={styles.btn} onClick={addComponent}>
-        +
-      </button>
+      <div className="addBtn">
+        <button type="button" className={styles.btn} onClick={addComponent}>
+          +
+        </button>
+      </div>
+
       <div className="container">{components}</div>
     </>
   );
