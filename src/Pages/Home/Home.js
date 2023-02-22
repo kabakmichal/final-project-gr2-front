@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import css from "./Home.module.css";
+import { AddButton } from "../../Components/AddButton"; //USUNAC!!!
 
 import AuthModal from "../../Components/AuthModal/AuthModal";
 
 export default function Home() {
   const [modal, setModal] = useState(false);
+  // const [components, setComponents] = useState([]);
 
   return (
     <div>
@@ -33,6 +35,7 @@ export default function Home() {
         </div>
       </div>
       <AuthModal open={modal} onClose={() => setModal(false)} />
+      <AddButton></AddButton>
     </div>
   );
 }

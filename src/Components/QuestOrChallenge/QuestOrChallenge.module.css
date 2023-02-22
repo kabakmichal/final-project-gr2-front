@@ -1,0 +1,7 @@
+.window {
+  width: 205px;
+  height: 199px;
+  border: solid 2px black;
+  margin: 0;
+  display: flex;
+}
