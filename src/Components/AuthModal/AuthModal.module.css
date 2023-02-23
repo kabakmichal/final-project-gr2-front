@@ -1,0 +1,40 @@
+/* .auth_modal, */
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+  background: rgba(49, 49, 49, 0.5);
+}
+
+.modalContainer {
+  max-width: 300px;
+  width: 100%;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+}
+
+.auth_modal {
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.auth_form form {
+  background: white;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

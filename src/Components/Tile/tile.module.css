@@ -21,6 +21,14 @@
     background-color: red;
 }
 
+.dot.normal {
+    background-color: blue;
+}
+
+.dot.easy {
+    background-color: green;
+}
+
 .difficulty {
     display: flex;
     align-items: center;
@@ -39,6 +47,7 @@
 }
 
 .first_row {
+    margin-top: 19px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -50,25 +59,24 @@
 }
 
 .tile_title {
-    /* margin-top: 10px; */
+    margin-top: 42px;
     font-weight: bold;
     font-size: 16px;
     display: flex;
     justify-content: center;
-    margin-bottom: 12px;
 }
 
 .tile_date {
-    /* margin-top: 10px; */
+    margin-top: 12px;
     color: gray;
     display: flex;
     justify-content: center;
-    margin-bottom: 44px;
     font-size: 14px;
 }
 
 .bottom_row {
     background-color: #CDF7FF;
+    margin-top: 36px;
     border-radius: 0px 15px 15px 0px;
     width: 88px;
     height: 25px;
@@ -77,8 +85,6 @@
     /* align-items: baseline; */
     justify-content: center;
     align-items: center;
-    margin-bottom: 21px;
-
 }
 
 .category_name {
@@ -90,9 +96,6 @@
     align-items: center;
 }
 
-.difficulty .title {}
-
-.date {}
 
 @media only screen and (max-width: 320px) {
     .dot {

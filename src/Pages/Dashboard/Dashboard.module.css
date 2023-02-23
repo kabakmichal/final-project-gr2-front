@@ -1,0 +1,245 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-font: "HelveticaNeueCyr";
+  --primary-color: #00d7ff;
+}
+
+body {
+  background-color: #f2f3f7;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited,
+a:active,
+a:hover {
+  color: var(--primary-color);
+}
+
+
+
+/* ---------------------- DASHBOARD HEADER STYLES ---------------------- */
+
+header {
+  height: 70px;
+  padding-left: 5.5%;
+  padding-right: 5.5%;
+  background: #242a37;
+  box-shadow: 0px 4px 4px rgba(36, 42, 55, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_menu_user {
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #7b8aa4;
+  line-height: 30px;
+  display: flex;
+}
+
+.user_logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3e4e6c;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 900;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.user_name {
+  margin-left: 10px;
+}
+
+.header_logo {
+  font-size: 21px;
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--primary-color);
+}
+
+.header_icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 7%;
+}
+
+.header_challenge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3e4e6c;
+  position: relative;
+  margin-right: 38px;
+}
+
+.header_challenge_icon {
+  position: absolute;
+  top: 25%;
+  left: 26%;
+  fill: #7b8aa4;
+  background-color: #3e4e6c;
+}
+
+.header_logout_icon {
+  fill: #3e4e6c;
+}
+
+.header_challenge:focus,
+.header_challenge:focus .header-challenge-icon,
+.header_challenge:active,
+.header_challenge:active .header-challenge-icon,
+.header_challenge:hover,
+.header_challenge:hover .header-challenge-icon {
+  box-shadow: 0 0 2px 2px var(--primary-color);
+  background-color: var(--primary-color);
+  background: #00d7ff;
+  fill: #242a37;
+}
+
+.header_logout_icon:hover,
+.header_logout_icon:focus {
+  fill: #7b8aa4;
+}
+
+@media screen and (max-width: 768px) {
+  .header_challenge {
+    margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .user_name {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header_challenge {
+    margin-right: 10px;
+  }
+}
+
+/* ---------------------- DASHBOARD SECTIONS STYLES ---------------------- */
+li {
+  list-style: none;
+}
+
+.today_section,
+.tommorow_section {
+  margin-left: 5.5%;
+  margin-right: 5.5%;
+  margin-top: 30px;
+}
+
+.today_section_cards,
+.tommorow_section_cards {
+  margin-bottom: 20px;
+}
+
+.today_section_list,
+.tommorow_section_list {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+  /* grid-template-rows: 224px;
+  grid-template-columns: 233px 233px 233px 233px 233px; */
+}
+
+.today_section_list li,
+.tommorow_section_list li {
+  margin-right: 25px;
+  margin-bottom: 28px;
+}
+
+.today_section_challenge,
+.tommorow_section_challenge {
+  width: 205px;
+  height: 199px;
+  border: black 1px solid;
+  margin-top: 20px;
+  margin-right: 20px;
+  background: #FFFFFF;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
+}
+
+.add_challenge {
+  position: absolute;
+  right: 46px;
+  bottom: 40px;
+}
+
+.add_challenge_icon {
+  fill: #ff851c;
+}
+
+.add_challenge_icon:hover {
+  fill: var(--primary-color);
+}
+
+.add_challenge_icon:active,
+.add_challenge_icon:focus {
+  fill: #47aad5;
+}
+
+@media screen and (max-width: 768px) {
+
+  .today_section,
+  .tommorow_section {
+    margin-left: 50px;
+    margin-right: 49px;
+  }
+
+  .today_section_challenge,
+  .tommorow_section_challenge {
+    margin-top: 25px;
+  }
+
+  .add_challenge {
+    right: 23px;
+    bottom: 42px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .today_section,
+  .tommorow_section {
+    margin-left: 5.5%;
+    margin-right: 5.5%;
+    margin-top: 25px;
+  }
+
+  .today_section_challenge,
+  .tommorow_section_challenge {
+    width: 290px;
+    height: 260px;
+    margin-top: 25px;
+  }
+
+  .add_challenge {
+    right: 15px;
+    bottom: 50px;
+  }
+}

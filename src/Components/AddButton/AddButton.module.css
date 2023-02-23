@@ -1,0 +1,18 @@
+.btn {
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: #ff851c;
+  position: absolute;
+}
+
+.blur {
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: #ff851c;
+  filter: blur(4px);
+  position: absolute;
+}
