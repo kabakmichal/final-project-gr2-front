@@ -171,7 +171,7 @@ export default function Dashboard() {
             <use href="../public/assets/images/icons.svg#icon-add-button"></use>
           </svg>
         </a>
-        <AddButton></AddButton>
+        <AddButton target={todayQuestsArray}></AddButton>
       </body>
     </div>
   );

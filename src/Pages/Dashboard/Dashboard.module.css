@@ -119,6 +119,16 @@ header {
   fill: #7b8aa4;
 }
 
+/* .addBtn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+} */
+
 @media screen and (max-width: 768px) {
   .header_challenge {
     margin-right: 25px;
