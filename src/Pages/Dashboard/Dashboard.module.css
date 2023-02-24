@@ -140,6 +140,9 @@ header {
 }
 
 /* ---------------------- DASHBOARD SECTIONS STYLES ---------------------- */
+li {
+  list-style: none;
+}
 
 .today_section,
 .tommorow_section {
@@ -150,9 +153,23 @@ header {
 
 .today_section_cards,
 .tommorow_section_cards {
-  /* display: flex; */
+  margin-bottom: 20px;
+}
+
+.today_section_list,
+.tommorow_section_list {
+  margin-top: 20px;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+
+  /* grid-template-rows: 224px;
+  grid-template-columns: 233px 233px 233px 233px 233px; */
+}
+
+.today_section_list li,
+.tommorow_section_list li {
+  margin-right: 25px;
+  margin-bottom: 28px;
 }
 
 .today_section_challenge,
@@ -163,8 +180,8 @@ header {
   margin-top: 20px;
   margin-right: 20px;
   background: #FFFFFF;
-box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
-border-radius: 10px;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
 }
 
 .add_challenge {
@@ -172,9 +189,11 @@ border-radius: 10px;
   right: 46px;
   bottom: 40px;
 }
+
 .add_challenge_icon {
   fill: #ff851c;
 }
+
 .add_challenge_icon:hover {
   fill: var(--primary-color);
 }
@@ -185,6 +204,7 @@ border-radius: 10px;
 }
 
 @media screen and (max-width: 768px) {
+
   .today_section,
   .tommorow_section {
     margin-left: 50px;
@@ -203,6 +223,7 @@ border-radius: 10px;
 }
 
 @media screen and (max-width: 320px) {
+
   .today_section,
   .tommorow_section {
     margin-left: 5.5%;

@@ -1,15 +1,111 @@
 import React from "react";
 import css from "./Dashboard.module.css";
 import { useSelector } from "react-redux";
+import Tile from "../../components/Tile/Tile"
 
 
 
 export default function Dashboard() {
-    
-    
-    // const user = useSelector((state) => state.user);
-    const user = "John’s";
-    const userDisplay = user.email || "John’s";
+
+
+  // const user = useSelector((state) => state.user);
+  const user = "John’s";
+  const userDisplay = user.email || "John’s";
+
+
+  const doQuestUntil = Date()
+
+  console.log(doQuestUntil)
+
+
+  const todayQuestsArray = [{
+    hardness: "easy",
+    title: "reQuest",
+    date: "Today:" + Date().slice(16, 21),
+    type: "Health",
+    isQuest: true
+  },
+  {
+    hardness: "easy",
+    title: "reQuest",
+    date: "Today:" + Date().slice(16, 21),
+    type: "Health",
+    isQuest: true
+  }
+  ]
+
+  const tomorrowQuestsArray = [
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+    {
+      hardness: "easy",
+      title: "reQuest",
+      date: "Tomorrow:" + Date().slice(16, 21),
+      type: "Health",
+      isQuest: true
+    },
+  ]
 
   return (
     <div>
@@ -42,13 +138,36 @@ export default function Dashboard() {
         <div className={css.today_section}>
           <p classNameName={css.today_section_text}>TODAY</p>
           <div classNameName={css.today_section_cards}>
-            <div className={css.today_section_challenge}></div>
+            <ul className={css.today_section_list}>
+              {todayQuestsArray.map(quest =>
+                <li>
+                  <Tile
+                    difficultyLevel={quest.hardness}
+                    title={quest.title}
+                    date={quest.date}
+                    type={quest.type}
+                  />
+                </li>
+              )}
+            </ul>
           </div>
         </div>
         <div className={css.tommorow_section}>
           <p className={css.tommorow_section_text}>TOMMORROW</p>
           <div className={css.tommorow_section_cards}>
-            <div className={css.tommorow_section_challenge}></div>
+            <ul className={css.tommorow_section_list}>
+              {tomorrowQuestsArray.map(quest =>
+                <li>
+                  <Tile
+                    difficultyLevel={quest.hardness}
+                    title={quest.title}
+                    date={quest.date}
+                    type={quest.type}
+                    isQuest={quest.isQuest}
+                  />
+                </li>
+              )}
+            </ul>
           </div>
         </div>
         <a className={css.add_challenge} href="Dashboard.js">
