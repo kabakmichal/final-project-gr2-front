@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./Dashboard.module.css";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 
 
@@ -13,7 +13,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <body>
+      
         <header>
           <a href="Dashboard.js" className={css.header_logo}>
             Questify
@@ -40,8 +40,8 @@ export default function Dashboard() {
           </div>
         </header>
         <div className={css.today_section}>
-          <p classNameName={css.today_section_text}>TODAY</p>
-          <div classNameName={css.today_section_cards}>
+          <p className={css.today_section_text}>TODAY</p>
+          <div className={css.today_section_cards}>
             <div className={css.today_section_challenge}></div>
           </div>
         </div>
@@ -56,7 +56,8 @@ export default function Dashboard() {
             <use href="../public/assets/images/icons.svg#icon-add-button"></use>
           </svg>
         </a>
-      </body>
+      
     </div>
+     
   );
 }
