@@ -25,8 +25,6 @@ a:hover {
   color: var(--primary-color);
 }
 
-
-
 /* ---------------------- DASHBOARD HEADER STYLES ---------------------- */
 
 header {
@@ -145,19 +143,19 @@ li {
 }
 
 .today_section,
-.tommorow_section {
+.tomorrow_section {
   margin-left: 5.5%;
   margin-right: 5.5%;
   margin-top: 30px;
 }
 
 .today_section_cards,
-.tommorow_section_cards {
+.tomorrow_section_cards {
   margin-bottom: 20px;
 }
 
 .today_section_list,
-.tommorow_section_list {
+.tomorrow_section_list {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -167,20 +165,21 @@ li {
 }
 
 .today_section_list li,
-.tommorow_section_list li {
+.tomorrow_section_list li {
   margin-right: 25px;
   margin-bottom: 28px;
 }
 
 .today_section_challenge,
-.tommorow_section_challenge {
+.tomorrow_section_challenge {
   width: 205px;
   height: 199px;
   border: black 1px solid;
   margin-top: 20px;
   margin-right: 20px;
-  background: #FFFFFF;
-  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+  background: #ffffff;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
   border-radius: 10px;
 }
 
@@ -204,15 +203,14 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-
   .today_section,
-  .tommorow_section {
+  .tomorrow_section {
     margin-left: 50px;
     margin-right: 49px;
   }
 
   .today_section_challenge,
-  .tommorow_section_challenge {
+  .tomorrow_section_challenge {
     margin-top: 25px;
   }
 
@@ -223,16 +221,15 @@ li {
 }
 
 @media screen and (max-width: 320px) {
-
   .today_section,
-  .tommorow_section {
+  .tomorrow_section {
     margin-left: 5.5%;
     margin-right: 5.5%;
     margin-top: 25px;
   }
 
   .today_section_challenge,
-  .tommorow_section_challenge {
+  .tomorrow_section_challenge {
     width: 290px;
     height: 260px;
     margin-top: 25px;
