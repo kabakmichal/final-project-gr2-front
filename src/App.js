@@ -1,5 +1,5 @@
 import "./App.css";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Dashboard from "./Pages/Dashboard/Dashboard.js";
 // import AuthModal from "./Components/AuthModal/AuthModal";
 
 function App() {
