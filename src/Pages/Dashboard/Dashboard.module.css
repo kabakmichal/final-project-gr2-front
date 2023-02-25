@@ -11,9 +11,9 @@
   --primary-color: #00d7ff;
 }
 
-body {
+/* body {
   background-color: #f2f3f7;
-}
+} */
 
 a {
   text-decoration: none;
@@ -141,21 +141,21 @@ header {
 
 /* ---------------------- DASHBOARD SECTIONS STYLES ---------------------- */
 
-.today_section,
+/* .today_section,
 .tommorow_section {
   margin-left: 5.5%;
   margin-right: 5.5%;
   margin-top: 30px;
-}
+} */
 
-.today_section_cards,
+/* .today_section_cards,
 .tommorow_section_cards {
-  /* display: flex; */
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+} */
 
-.today_section_challenge,
+/* .today_section_challenge,
 .tommorow_section_challenge {
   width: 205px;
   height: 199px;
@@ -165,14 +165,15 @@ header {
   background: #FFFFFF;
 box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
 border-radius: 10px;
-}
+} */
 
-.add_challenge {
+/* .add_challenge {
   position: absolute;
   right: 46px;
   bottom: 40px;
-}
-.add_challenge_icon {
+} */
+
+/* .add_challenge_icon {
   fill: #ff851c;
 }
 .add_challenge_icon:hover {
@@ -182,16 +183,22 @@ border-radius: 10px;
 .add_challenge_icon:active,
 .add_challenge_icon:focus {
   fill: #47aad5;
-}
+} */
+
+.header_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 
 @media screen and (max-width: 768px) {
-  .today_section,
+  /* .today_section,
   .tommorow_section {
     margin-left: 50px;
     margin-right: 49px;
-  }
+  } */
 
-  .today_section_challenge,
+  /* .today_section_challenge,
   .tommorow_section_challenge {
     margin-top: 25px;
   }
@@ -199,10 +206,10 @@ border-radius: 10px;
   .add_challenge {
     right: 23px;
     bottom: 42px;
-  }
+  } */
 }
 
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
   .today_section,
   .tommorow_section {
     margin-left: 5.5%;
@@ -221,4 +228,5 @@ border-radius: 10px;
     right: 15px;
     bottom: 50px;
   }
-}
+
+} */
