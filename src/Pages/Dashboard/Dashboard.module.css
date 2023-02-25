@@ -11,9 +11,9 @@
   --primary-color: #00d7ff;
 }
 
-body {
+/* body {
   background-color: #f2f3f7;
-}
+} */
 
 a {
   text-decoration: none;
@@ -24,6 +24,8 @@ a:active,
 a:hover {
   color: var(--primary-color);
 }
+
+
 
 /* ---------------------- DASHBOARD HEADER STYLES ---------------------- */
 
@@ -138,61 +140,42 @@ header {
 }
 
 /* ---------------------- DASHBOARD SECTIONS STYLES ---------------------- */
-li {
-  list-style: none;
-}
 
-.today_section,
-.tomorrow_section {
+/* .today_section,
+.tommorow_section {
   margin-left: 5.5%;
   margin-right: 5.5%;
   margin-top: 30px;
-}
+} */
 
-.today_section_cards,
-.tomorrow_section_cards {
-  margin-bottom: 20px;
-}
-
-.today_section_list,
-.tomorrow_section_list {
-  margin-top: 20px;
+/* .today_section_cards,
+.tommorow_section_cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+} */
 
-  /* grid-template-rows: 224px;
-  grid-template-columns: 233px 233px 233px 233px 233px; */
-}
-
-.today_section_list li,
-.tomorrow_section_list li {
-  margin-right: 25px;
-  margin-bottom: 28px;
-}
-
-.today_section_challenge,
-.tomorrow_section_challenge {
+/* .today_section_challenge,
+.tommorow_section_challenge {
   width: 205px;
   height: 199px;
   border: black 1px solid;
   margin-top: 20px;
   margin-right: 20px;
-  background: #ffffff;
-  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
-    3px 4px 4px rgba(21, 57, 90, 0.03);
-  border-radius: 10px;
-}
+  background: #FFFFFF;
+box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03), 3px 4px 4px rgba(21, 57, 90, 0.03);
+border-radius: 10px;
+} */
 
-.add_challenge {
+/* .add_challenge {
   position: absolute;
   right: 46px;
   bottom: 40px;
-}
+} */
 
-.add_challenge_icon {
+/* .add_challenge_icon {
   fill: #ff851c;
 }
-
 .add_challenge_icon:hover {
   fill: var(--primary-color);
 }
@@ -200,36 +183,42 @@ li {
 .add_challenge_icon:active,
 .add_challenge_icon:focus {
   fill: #47aad5;
-}
+} */
 
-@media screen and (max-width: 768px) {
-  .today_section,
-  .tomorrow_section {
-    margin-left: 50px;
-    margin-right: 49px;
+.header_button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
 
-  .today_section_challenge,
-  .tomorrow_section_challenge {
+@media screen and (max-width: 768px) {
+  /* .today_section,
+  .tommorow_section {
+    margin-left: 50px;
+    margin-right: 49px;
+  } */
+
+  /* .today_section_challenge,
+  .tommorow_section_challenge {
     margin-top: 25px;
   }
 
   .add_challenge {
     right: 23px;
     bottom: 42px;
-  }
+  } */
 }
 
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
   .today_section,
-  .tomorrow_section {
+  .tommorow_section {
     margin-left: 5.5%;
     margin-right: 5.5%;
     margin-top: 25px;
   }
 
   .today_section_challenge,
-  .tomorrow_section_challenge {
+  .tommorow_section_challenge {
     width: 290px;
     height: 260px;
     margin-top: 25px;
@@ -239,4 +228,5 @@ li {
     right: 15px;
     bottom: 50px;
   }
-}
+
+} */
