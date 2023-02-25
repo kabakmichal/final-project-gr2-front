@@ -16,7 +16,7 @@ export const AddButton = () => {
       <div className="addBtn">
         <div className={styles.blur}></div>
         <button type="button" className={styles.btn} onClick={addComponent}>
-          <img src={Plus}></img>
+          <img src={Plus} alt="Plus"></img>
         </button>
       </div>
       <div className="container">{components}</div>
