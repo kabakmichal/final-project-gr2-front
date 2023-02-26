@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 import styles from "./AddButton.module.css";
-import { QuestOrChallenge } from "../QuestOrChallenge";
-
+// import { QuestOrChallenge } from "../QuestOrChallenge";
+import QuestTile from "../QuestTile/QuestTile";
 import Plus from "./plus.svg";
 
 export const AddButton = () => {
   const [components, setComponents] = useState([]);
 
+  const defaultObject = {
+    hardness: "normal",
+    title: "New quest",
+    date: "Choose date",
+    type: "Job",
+  };
+
   const addComponent = () => {
-    return setComponents([components.concat(<QuestOrChallenge />)]);
+    return setComponents([
+      components.concat(
+        <QuestTile
+          difficultyLevel={defaultObject.hardness}
+          title={defaultObject.title}
+          date={defaultObject.date}
+          type={defaultObject.type}
+        />
+      ),
+    ]);
+    // return setComponents([components.concat(<QuestOrChallenge />)]);
   };
 
   return (

@@ -1,19 +1,19 @@
 import React from "react";
 import css from "./Dashboard.module.css";
-import { useSelector } from "react-redux";
-import QuestTile from "../../components/QuestTile/QuestTile"
-import ChallengeTile from "../../components/ChallengeTile/ChallengeTile"
+// import { useSelector } from "react-redux";
+import QuestTile from "../../Components/QuestTile/QuestTile"
+import ChallengeTile from "../../Components/ChallengeTile/ChallengeTile"
 import { sortByDate } from "../../utils/sortByDate";
 
+import { AddButton } from "../../Components/AddButton";
 
+import LogOut from "./logout.svg";
+import Trophy from "./trophy.svg";
 
 export default function Dashboard() {
-
-
   // const user = useSelector((state) => state.user);
   const user = "John’s";
   const userDisplay = user.email || "John’s";
-
 
 
   const challenges = [{
@@ -147,7 +147,7 @@ export default function Dashboard() {
       type: "health",
       isQuest: false
     },
-  ]
+  ];
 
   // lepiej byłoby zrobić jedną posortowaną już tablice i tam w zależności od isQuest wywoływać Quest albo Challenge
 
@@ -157,7 +157,7 @@ export default function Dashboard() {
         <QuestTile
           difficultyLevel={quest.hardness}
           title={quest.title}
-          date={"Today," + quest.date.slice(16, 21)}
+          date={"Today, " + quest.date.slice(16, 21)}
           type={quest.type}
           isQuest={quest.isQuest}
         />
@@ -178,7 +178,6 @@ export default function Dashboard() {
 
   return (
     <div>
-
       <header>
         <a href="Dashboard.js" className={css.header_logo}>
           Questify
@@ -190,17 +189,13 @@ export default function Dashboard() {
         <div className={css.header_icons}>
           <a className={css.header_challenge} href="Dashboard.js">
             <svg className={css.header_challenge_icon} width="14" height="14">
-              <use href="../public/assets/images/icons.svg#icon-trophy"></use>
+              <img src={Trophy} alt="Trophy"></img>
             </svg>
           </a>
           <a className={css.header_logout} href="Dashboard.js">
-            <svg
-              className={css.header_logout_icon}
-              width="21.58"
-              height="16.05"
-            >
-              <use href="../public/assets/images/icons.svg#icon-logout"></use>
-            </svg>
+            <button type="button" className={css.header_button}>
+              <img src={LogOut} alt="Logout"></img>
+            </button>
           </a>
         </div>
       </header>
@@ -221,7 +216,7 @@ export default function Dashboard() {
                 <QuestTile
                   difficultyLevel={quest.hardness}
                   title={quest.title}
-                  date={"Tomorrow," + quest.date.slice(16, 21)}
+                  date={"Tomorrow, " + quest.date.slice(16, 21)}
                   type={quest.type}
                   isQuest={quest.isQuest}
                 />
@@ -235,7 +230,6 @@ export default function Dashboard() {
           <use href="../public/assets/images/icons.svg#icon-add-button"></use>
         </svg>
       </a>
-
     </div>
   );
 }
