@@ -142,11 +142,14 @@ li {
   list-style: none;
 }
 
+.today_section {
+  margin-top: 30px;
+}
+
 .today_section,
 .tomorrow_section {
   margin-left: 5.5%;
   margin-right: 5.5%;
-  margin-top: 30px;
 }
 
 .today_section_cards,
@@ -203,12 +206,13 @@ li {
 }
 
 .header_button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-  
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
+
   .today_section,
   .tomorrow_section {
     margin-left: 50px;
@@ -227,6 +231,7 @@ li {
 }
 
 @media screen and (max-width: 320px) {
+
   .today_section,
   .tomorrow_section {
     margin-left: 5.5%;

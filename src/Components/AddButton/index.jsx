@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styles from "./AddButton.module.css";
 // import { QuestOrChallenge } from "../QuestOrChallenge";
-import { Tile } from "../Tile/Tile.js";
-
+import QuestTile from "../QuestTile/QuestTile";
 import Plus from "./plus.svg";
 
 export const AddButton = () => {
@@ -18,7 +17,7 @@ export const AddButton = () => {
   const addComponent = () => {
     return setComponents([
       components.concat(
-        <Tile
+        <QuestTile
           difficultyLevel={defaultObject.hardness}
           title={defaultObject.title}
           date={defaultObject.date}
