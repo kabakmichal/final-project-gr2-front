@@ -12,23 +12,6 @@ export default function Dashboard() {
 
   console.log(doQuestUntil);
 
-  // const todayQuestsArray = [
-  //   {
-  //     hardness: "easy",
-  //     title: "reQuest",
-  //     date: "Today:" + Date().slice(16, 21),
-  //     type: "Health",
-  //     isQuest: true,
-  //   },
-  //   {
-  //     hardness: "easy",
-  //     title: "reQuest",
-  //     date: "Today:" + Date().slice(16, 21),
-  //     type: "Health",
-  //     isQuest: true,
-  //   },
-  // ];
-
   const tomorrowQuestsArray = [
     {
       hardness: "easy",
@@ -133,17 +116,7 @@ export default function Dashboard() {
         <div className={css.today_section}>
           <p className={css.today_section_text}>TODAY</p>
           <div className={css.today_section_cards}>
-              {/* {todayQuestsArray.map((quest) => (
-                <li>
-                  <Tile
-                    difficultyLevel={quest.hardness}
-                    title={quest.title}
-                    date={quest.date}
-                    type={quest.type}
-                  />
-                </li>
-              ))} */}
-              <ListOfTiles></ListOfTiles>
+            <ListOfTiles></ListOfTiles>
           </div>
         </div>
         <div className={css.tomorrow_section}>

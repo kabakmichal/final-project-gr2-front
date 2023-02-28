@@ -1,28 +1,9 @@
-.btn {
-  border-radius: 50%;
-  width: 52px;
-  height: 52px;
-  border: none;
-  background: #ff851c;
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
+.list_items {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.blur {
-  border-radius: 50%;
-  width: 52px;
-  height: 52px;
-  border: none;
-  background: #ff851c;
-  filter: blur(4px);
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  margin: 0;
-  padding: 0;
+.list_item {
+  margin-right: 25px;
+  margin-bottom: 28px;
 }
