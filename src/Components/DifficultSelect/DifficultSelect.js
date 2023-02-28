@@ -12,6 +12,7 @@ const DifficultOptions =[
                 ...base,
                 border: 0,
                 boxShadow: "none",
+                fontSize: 14,
             })
         };
     return (
