@@ -1,8 +1,7 @@
 import React from "react";
 import css from "./Dashboard.module.css";
-// import { useSelector } from "react-redux";
 import { Tile } from "../../Components/Tile/Tile.js";
-import { AddButton } from "../../Components/AddButton";
+import { ListOfTiles } from "../../Components/ListOfTiles";
 
 export default function Dashboard() {
   // const user = useSelector((state) => state.user);
@@ -13,22 +12,22 @@ export default function Dashboard() {
 
   console.log(doQuestUntil);
 
-  const todayQuestsArray = [
-    {
-      hardness: "easy",
-      title: "reQuest",
-      date: "Today:" + Date().slice(16, 21),
-      type: "Health",
-      isQuest: true,
-    },
-    {
-      hardness: "easy",
-      title: "reQuest",
-      date: "Today:" + Date().slice(16, 21),
-      type: "Health",
-      isQuest: true,
-    },
-  ];
+  // const todayQuestsArray = [
+  //   {
+  //     hardness: "easy",
+  //     title: "reQuest",
+  //     date: "Today:" + Date().slice(16, 21),
+  //     type: "Health",
+  //     isQuest: true,
+  //   },
+  //   {
+  //     hardness: "easy",
+  //     title: "reQuest",
+  //     date: "Today:" + Date().slice(16, 21),
+  //     type: "Health",
+  //     isQuest: true,
+  //   },
+  // ];
 
   const tomorrowQuestsArray = [
     {
@@ -134,8 +133,7 @@ export default function Dashboard() {
         <div className={css.today_section}>
           <p className={css.today_section_text}>TODAY</p>
           <div className={css.today_section_cards}>
-            <ul className={css.today_section_list}>
-              {todayQuestsArray.map((quest) => (
+              {/* {todayQuestsArray.map((quest) => (
                 <li>
                   <Tile
                     difficultyLevel={quest.hardness}
@@ -144,8 +142,8 @@ export default function Dashboard() {
                     type={quest.type}
                   />
                 </li>
-              ))}
-            </ul>
+              ))} */}
+              <ListOfTiles></ListOfTiles>
           </div>
         </div>
         <div className={css.tomorrow_section}>
@@ -171,7 +169,6 @@ export default function Dashboard() {
             <use href="../public/assets/images/icons.svg#icon-add-button"></use>
           </svg>
         </a>
-        <AddButton target={todayQuestsArray}></AddButton>
       </body>
     </div>
   );
