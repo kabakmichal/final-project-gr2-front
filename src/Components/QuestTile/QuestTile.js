@@ -1,4 +1,5 @@
 import React from "react"
+import DifficultSelect from "../DifficultSelect/DifficultSelect";
 import styles from "./questTile.module.css"
 import { ReactComponent as Star } from "./star.svg"
 
@@ -8,10 +9,11 @@ const QuestTile = (props) => {
         <>
             <div className={styles.tile}>
                 <div className={styles.top_container}>
-                    <div className={styles.difficulty}>
+                    <DifficultSelect/>
+                    {/* <div className={styles.difficulty}>
                         <span className={`${styles.dot} ${styles[props.difficultyLevel]}`}></span>
                         <p className={styles.difficulty_level} >{props.difficultyLevel.charAt(0).toUpperCase() + props.difficultyLevel.slice(1)}</p>
-                    </div>
+                    </div> */}
                     <div className={styles.picture}>
                         <Star />
                     </div>
