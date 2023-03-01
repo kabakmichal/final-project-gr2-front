@@ -1,14 +1,15 @@
 import React from 'react';
 import Select from 'react-select';
+import styles from './CategorySelect.module.css';
 
 const CategorySelect = () => {
     const CategoryOptions =[
-        { value: 'STUFF', label: 'STUFF', color: '#B9C3C8' },
-        { value: 'FAMILY', label: 'FAMILY', color: '#FFE6D3' },
-        { value: 'HEALTH', label: 'HEALTH', color: '#CDF7FF' },
-        { value: 'LEARNING', label: 'LEARNING', color: '#FFF6C0' },
-        { value: 'LEISURE', label: 'LEISURE', color: '#F8D2FF' },
-        { value: 'WORK', label: 'WORK', color: '#D3F6CE' },
+        { value: 'STUFF', label: 'STUFF', bgcolor: '#B9C3C8' },
+        { value: 'FAMILY', label: 'FAMILY', bgcolor: '#FFE6D3' },
+        { value: 'HEALTH', label: 'HEALTH', bgcolor: '#CDF7FF' },
+        { value: 'LEARNING', label: 'LEARNING', bgcolor: '#FFF6C0' },
+        { value: 'LEISURE', label: 'LEISURE', bgcolor: '#F8D2FF' },
+        { value: 'WORK', label: 'WORK', bgcolor: '#D3F6CE' },
     ];
     const colorStyles = {
         control: (styles) => ({ ...styles }),
@@ -17,12 +18,12 @@ const CategorySelect = () => {
             border: 0,
             boxShadow: "none",
             fontSize: 11,
-            paddingTop: 36,
-            paddingBottom: 21,
+            marginTop: 36,
+            marginBottom: 27,
         }),
         option: (styles, {data,  isFocus, isSelected }) => {
             console.log("option", data, isFocus, isSelected );
-            return { ...styles, background: data.color };
+            return { ...styles, background: data.bgcolor };
         },
     };
     const handleChange = (selectedOption) => {
@@ -30,10 +31,12 @@ const CategorySelect = () => {
     };
 
     return (
+        <div style={{width: '115px'}}>
         <Select
         options={CategoryOptions}
         onChange={handleChange}
         styles={colorStyles}/>
+        </div>
     );
 };
 

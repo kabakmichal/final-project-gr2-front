@@ -1,17 +1,3 @@
-.card_category {
-    text-transform: uppercase;
-    font-family: HelveticaNeueCyr, sans-serif;
-    width: 101px;
-    font-size: 11px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 0 60px 60px 0;
-    border: none;
-    outline: none;
-    box-shadow: rgb(236, 239, 241) -22px 0px 0px 0px;
-    background-color: rgb(236, 239, 241);
-}
-
 .stuff_category {
     box-shadow: rgb(236, 239, 241) -22px 0px 0px 0px;
     background-color: #eceff1;
