@@ -1,28 +1,25 @@
-.flatpickr-input {
-    max-width: 130px;
+input {
+    max-width: 100px;
     border: none;
     font-size: 14px;
     background-color: transparent;
-    color: var(--primary-color);
+    color: #282828;
+    margin-top: 12px;
 }
 
-.flatpickr-input-challange {
-    color: var(--white);
+.date {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.flatpickr-input:focus {
-    outline: var(--btn-active-color) solid 1px;
+button {
+    border: none;
+    background-color: #fff;
 }
+
 
 @media screen and (max-width: 768px) {
-    .date-time-container {
+    .date {
         width: 248px;
     }
-}
-
-.date-time-container {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    width: 163px;
 }
