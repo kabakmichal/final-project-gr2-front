@@ -1,13 +1,15 @@
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/themes/material_blue.css';
-import './DateTimePicker.module.css';
+import PropTypes from 'prop-types'
+import styles from './DateTimePicker.module.css';
 import Calendar from "./calendar.svg";
 
 function DateTimePicker({ deadline, handleDateChange }) {
     
     return (
-        <div className="date-time-container">
+        <div className={styles.date}>
         <Flatpickr
+            
             options={{
             enableTime: true,
             time_24hr: true,
@@ -30,9 +32,9 @@ function DateTimePicker({ deadline, handleDateChange }) {
             handleDateChange(new Date(date))
             }}
         >
-            <input type="text" placeholder="Select Date.." data-input />
+            <input type="text" placeholder="Select Date..." data-input />
             <button data-toggle>
-            <img src={Calendar}></img>
+            <img className={styles.calendar} src={Calendar}></img>
             </button>
         </Flatpickr>
         </div>
