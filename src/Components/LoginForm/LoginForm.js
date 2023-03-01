@@ -53,7 +53,7 @@ export default function LoginForm(props) {
     } catch (err) {
       alert(err.response.data.message);
     }
-    console.log(email, password);
+    // console.log(email, password);
   };
   return (
     <form onSubmit={handleSubmit}>
