@@ -1,10 +1,11 @@
 import React from "react";
 import css from "./Dashboard.module.css";
 // import { useSelector } from "react-redux";
-import QuestTile from "../../Components/QuestTile/QuestTile";
+import { QuestTile } from "../../Components/QuestTile/QuestTile.jsx";
 import ChallengeTile from "../../Components/ChallengeTile/ChallengeTile";
 import { sortByDate } from "../../utils/sortByDate";
 
+import { ListOfTiles } from "../../Components/ListOfTiles";
 import { AddButton } from "../../Components/AddButton";
 
 import LogOut from "./logout.svg";
@@ -39,7 +40,7 @@ export default function Dashboard() {
     },
   ];
 
-  console.log(doQuestUntil);
+  // console.log(doQuestUntil);
 
   const tomorrowQuestsArray = [
     {
@@ -116,30 +117,30 @@ export default function Dashboard() {
 
   // lepiej byłoby zrobić jedną posortowaną już tablice i tam w zależności od isQuest wywoływać Quest albo Challenge
 
-  const array = [
-    ...todayQuestsArray.map((quest) => (
-      <li>
-        <QuestTile
-          difficultyLevel={quest.hardness}
-          title={quest.title}
-          date={"Today, " + quest.date.slice(16, 21)}
-          type={quest.type}
-          isQuest={quest.isQuest}
-        />
-      </li>
-    )),
-    ...challenges.map((quest) => (
-      <li>
-        <ChallengeTile
-          difficultyLevel={quest.hardness}
-          title={quest.title}
-          date={quest.date}
-          type={quest.type}
-          isQuest={quest.isQuest}
-        />
-      </li>
-    )),
-  ];
+  // const array = [
+  //   ...todayQuestsArray.map((quest) => (
+  //     <li>
+  //       <QuestTile
+  //         difficultyLevel={quest.hardness}
+  //         title={quest.title}
+  //         date={"Today, " + quest.date.slice(16, 21)}
+  //         type={quest.type}
+  //         isQuest={quest.isQuest}
+  //       />
+  //     </li>
+  //   )),
+  //   ...challenges.map((quest) => (
+  //     <li>
+  //       <ChallengeTile
+  //         difficultyLevel={quest.hardness}
+  //         title={quest.title}
+  //         date={quest.date}
+  //         type={quest.type}
+  //         isQuest={quest.isQuest}
+  //       />
+  //     </li>
+  //   )),
+  // ];
 
   return (
     <div>
@@ -167,7 +168,8 @@ export default function Dashboard() {
       <div className={css.today_section}>
         <p className={css.today_section_text}>TODAY</p>
         <div className={css.today_section_cards}>
-          <ul className={css.today_section_list}>{array}</ul>
+          {/* <ul className={css.today_section_list}>{array}</ul> */}
+          <ListOfTiles />
         </div>
       </div>
       <div className={css.tomorrow_section}>
@@ -193,7 +195,7 @@ export default function Dashboard() {
           <use href="../public/assets/images/icons.svg#icon-add-button"></use>
         </svg>
       </a>
-      <AddButton />
+      {/* <AddButton /> */}
     </div>
   );
 }
