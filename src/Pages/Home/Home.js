@@ -6,6 +6,16 @@ import AuthModal from "../../Components/AuthModal/AuthModal";
 export default function Home() {
   const [modal, setModal] = useState(false);
 
+  const [emailValue, setEmailValue] = useState("");
+
+  const handleClick = () => {
+    setModal(true);
+    localStorage.setItem("emailValue", emailValue);
+  };
+
+  const handleChange = (e) => {
+    setEmailValue(e.target.value);
+  };
   return (
     <div>
       <div className={css.container_page}>
@@ -22,12 +32,12 @@ export default function Home() {
           <label className={css.login_label}>
             Choose your email to sign up or log in
           </label>
-          <input type="text" className={css.login_input} />
-          <button
-            type="submit"
-            className={css.login_go}
-            onClick={() => setModal(true)}
-          >
+          <input
+            type="text"
+            className={css.login_input}
+            onChange={handleChange}
+          />
+          <button type="submit" className={css.login_go} onClick={handleClick}>
             go!
           </button>
         </div>
