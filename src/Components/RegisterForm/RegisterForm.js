@@ -10,13 +10,9 @@ import { userSchema } from "../../Validations/UserValidation";
 const REGISTER_URL = "/api/users/register";
 
 export default function RegisterForm(props) {
-  // const userRef = useRef();
-  // const errRef = useRef();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState(localStorage.getItem("emailValue"));
   const [password, setPassword] = useState("");
-  // const [matchPwd, setMatchPwd] = useState("");
 
   const createUser = async (e) => {
     e.preventDefault();
