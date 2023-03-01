@@ -1,5 +1,6 @@
 import React from "react";
 import CategorySelect from "../CategorySelect/CategorySelect";
+import DateTimePicker from "../DateTimePicker/DateTimePicker";
 import DifficultSelect from "../DifficultSelect/DifficultSelect";
 import styles from "./questTile.module.css";
 import { ReactComponent as Star } from "./star.svg";
@@ -22,7 +23,8 @@ export const QuestTile = (props) => {
         <div className={styles.tile_title}>
           <p className={styles.tile_title_text}>{props.title}</p>
         </div>
-        <div className={styles.tile_date}> {props.date}</div>
+        <DateTimePicker/>
+        {/* <div className={styles.tile_date}> {props.date}</div> */}
         <div className={styles.bottom_container}>
           <CategorySelect/>
           {/* <div className={`${styles.category} ${styles[props.type]}`}>
