@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./AddButton.module.css";
-import { QuestOrChallenge } from "../QuestOrChallenge";
+import Plus from "./plus.svg";
 
-export const AddButton = () => {
-  const [components, setComponents] = useState([]);
-
-  const addComponent = () => {
-    return setComponents([components.concat(<QuestOrChallenge />)]);
-  };
+export const AddButton = (props) => {
+  const { onButtonClick } = props;
 
   return (
     <>
-      <button type="button" className={styles.btn} onClick={addComponent}>
-        +
-      </button>
-      <div className="container">{components}</div>
+      <div className="addBtn">
+        <div className={styles.blur}></div>
+        <button type="button" className={styles.btn} onClick={onButtonClick}>
+          <img src={Plus} alt="Plus icon"></img>
+        </button>
+      </div>
     </>
   );
 };

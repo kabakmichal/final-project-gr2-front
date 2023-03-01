@@ -1,10 +1,28 @@
 .btn {
   border-radius: 50%;
-  border-width: 1px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: #ff851c;
+  right: 30px;
+  bottom: 30px;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.blur {
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: #ff851c;
+  filter: blur(4px);
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  margin: 0;
+  padding: 0;
 }

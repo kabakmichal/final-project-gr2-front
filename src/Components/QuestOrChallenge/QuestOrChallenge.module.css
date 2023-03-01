@@ -1,7 +1,28 @@
+:root {
+  --background-color-challenge: #15395a;
+  --background-color-quest: #ffffff;
+  --main-font-color-challenge: #b9c3c8;
+}
+
+/* ---------------------- QUEST OR CHALLENGE STYLES ---------------------- */
+
 .window {
   width: 205px;
   height: 199px;
   border: solid 2px black;
   margin: 0;
   display: flex;
+  border: none;
+  background-color: var(--background-color-challenge);
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+  border-radius: 10px;
+  color: var(--main-font-color-challenge);
+  flex-direction: column;
+}
+
+.inputWindow {
+  background-color: blue;
+  border: none;
+  max-height: 14px;
 }

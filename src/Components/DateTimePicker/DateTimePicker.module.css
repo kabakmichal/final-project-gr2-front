@@ -1,0 +1,25 @@
+input {
+    max-width: 100px;
+    border: none;
+    font-size: 14px;
+    background-color: transparent;
+    color: #282828;
+    margin-top: 12px;
+}
+
+.date {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    border: none;
+    background-color: #fff;
+}
+
+
+@media screen and (max-width: 768px) {
+    .date {
+        width: 248px;
+    }
+}
