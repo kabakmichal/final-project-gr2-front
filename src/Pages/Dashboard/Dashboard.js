@@ -2,14 +2,10 @@ import React from "react";
 import css from "./Dashboard.module.css";
 import { useSelector } from "react-redux";
 
-
-
 export default function Dashboard() {
-    
-    
-    // const user = useSelector((state) => state.user);
-    const user = "John’s";
-    const userDisplay = user.email || "John’s";
+  // const user = useSelector((state) => state.user);
+  const user = "John’s";
+  const userDisplay = user.email || "John’s";
 
   return (
     <div>
