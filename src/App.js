@@ -10,8 +10,8 @@ function App() {
   return (
     // <Router>
     <Routes>
-      <Route index path="/final-project-gr2-front/" element={<Home />} />
-      {/* <Route index path="/" element={<Home />} /> */}
+      {/* <Route index path="/final-project-gr2-front/" element={<Home />} /> */}
+      <Route index path="/" element={<Home />} />
       <Route
         path="/dashboard"
         element={<PrivateRoute redirectTo="/" component={<Dashboard />} />}
