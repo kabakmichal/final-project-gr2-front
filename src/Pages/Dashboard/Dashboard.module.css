@@ -85,24 +85,27 @@ header {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #3e4e6c;
+  
   position: relative;
   margin-right: 38px;
+  box-shadow: 0 0 2px 2px var(--primary-color);
+  background-color: var(--primary-color);
+  background: #00d7ff;
+  fill: #242a37;
 }
 
 .header_challenge_icon {
   position: absolute;
   top: 25%;
   left: 26%;
-  fill: #7b8aa4;
-  background-color: #3e4e6c;
+ 
 }
 
 .header_logout_icon {
   fill: #3e4e6c;
 }
 
-.header_challenge:focus,
+/* .header_challenge:focus,
 .header_challenge:focus .header-challenge-icon,
 .header_challenge:active,
 .header_challenge:active .header-challenge-icon,
@@ -112,7 +115,7 @@ header {
   background-color: var(--primary-color);
   background: #00d7ff;
   fill: #242a37;
-}
+} */
 
 .header_logout_icon:hover,
 .header_logout_icon:focus {
