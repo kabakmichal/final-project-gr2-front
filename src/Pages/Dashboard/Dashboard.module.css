@@ -212,7 +212,6 @@ li {
 }
 
 @media screen and (max-width: 768px) {
-
   .today_section,
   .tomorrow_section {
     margin-left: 50px;
@@ -231,7 +230,6 @@ li {
 }
 
 @media screen and (max-width: 320px) {
-
   .today_section,
   .tomorrow_section {
     margin-left: 5.5%;
@@ -250,4 +248,8 @@ li {
     right: 15px;
     bottom: 50px;
   }
+}
+
+.add_btn {
+  display: flex;
 }

@@ -3,29 +3,18 @@ import styles from "./AddButton.module.css";
 // import { QuestOrChallenge } from "../QuestOrChallenge";
 import QuestTile from "../QuestTile/QuestTile";
 import Plus from "./plus.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodos, fetchTodos } from "../../redux/quest/operations";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const AddButton = () => {
-  const [components, setComponents] = useState([]);
-
-  const defaultObject = {
-    hardness: "normal",
-    title: "New quest",
-    date: "Choose date",
-    type: "Job",
-  };
-
+  const dispatch = useDispatch();
+  const quests = useSelector(fetchTodos);
+  const id = nanoid(6);
   const addComponent = () => {
-    return setComponents([
-      components.concat(
-        <QuestTile
-          difficultyLevel={defaultObject.hardness}
-          title={defaultObject.title}
-          date={defaultObject.date}
-          type={defaultObject.type}
-        />
-      ),
-    ]);
-    // return setComponents([components.concat(<QuestOrChallenge />)]);
+    dispatch(
+      addTodos({ title: "Title", date: "today", type: "Family", id: id })
+    );
   };
 
   return (
@@ -36,7 +25,6 @@ export const AddButton = () => {
           <img src={Plus}></img>
         </button>
       </div>
-      <div className="container">{components}</div>
     </>
   );
 };
