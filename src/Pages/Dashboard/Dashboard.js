@@ -4,12 +4,12 @@ import css from "./Dashboard.module.css";
 import { QuestTile } from "../../Components/QuestTile/QuestTile.jsx";
 import ChallengeTile from "../../Components/ChallengeTile/ChallengeTile";
 import { sortByDate } from "../../utils/sortByDate";
+import { ReactComponent as TrophyIcon } from "./trophy.svg";
 
 import { ListOfTiles } from "../../Components/ListOfTiles";
 import { AddButton } from "../../Components/AddButton";
 
 import LogOut from "./logout.svg";
-import Trophy from "./trophy.svg";
 
 export default function Dashboard() {
   // const user = useSelector((state) => state.user);
@@ -153,9 +153,9 @@ export default function Dashboard() {
           <p className={css.user_name}>{userDisplay} Quest Log</p>
         </div>
         <div className={css.header_icons}>
-          <a className={css.header_challenge} href="Dashboard.js">
+          <a className={css.header_challenge} >
             <svg className={css.header_challenge_icon} width="14" height="14">
-              <img src={Trophy} alt="Trophy"></img>
+              <TrophyIcon />
             </svg>
           </a>
           <a className={css.header_logout} href="Dashboard.js">
