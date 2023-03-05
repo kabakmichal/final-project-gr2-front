@@ -12,8 +12,8 @@ import { AddButton } from "../../Components/AddButton";
 import LogOut from "./logout.svg";
 
 export default function Dashboard() {
-  const quests = useSelector(getQuests);
-  console.log(quests);
+  // const quests = useSelector(getQuests);
+  // console.log(quests);
   // const user = useSelector((state) => state.user);
   const user = "John’s";
   const userDisplay = user.email || "John’s";
@@ -155,7 +155,7 @@ export default function Dashboard() {
           <p className={css.user_name}>{userDisplay} Quest Log</p>
         </div>
         <div className={css.header_icons}>
-          <a className={css.header_challenge} >
+          <a className={css.header_challenge}>
             <svg className={css.header_challenge_icon} width="14" height="14">
               <TrophyIcon />
             </svg>
