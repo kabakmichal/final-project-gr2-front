@@ -1,8 +1,20 @@
-.tile {
+.tile_questbg {
   width: 205px;
   height: 199px;
   border-radius: 10px;
   background-color: #ffffff;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 21px;
+}
+
+.tile_challengebg {
+  width: 205px;
+  height: 199px;
+  border-radius: 10px;
+  background-color: #15395A;
   display: flex;
   /* justify-content: space-between; */
   flex-direction: column;
@@ -72,6 +84,18 @@
   line-height: 22px;
 }
 
+.tile_title_chl {
+  margin-top: 10px;
+  font-family: 'HelveticaNeueCyr';
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  color: #ffffff;
+  justify-content: center;
+  font-style: normal;
+  line-height: 22px;
+}
+
 .tile_date {
   margin-top: 12px;
   color: gray;
@@ -85,6 +109,20 @@
   text-align: center;
   letter-spacing: 0.02em;
   color: #b9c3c8;
+}
+
+.tile_sign {
+  font-family: 'HelveticaNeueCyr';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #B9C3C8;
 }
 
 .tile_title_text {
