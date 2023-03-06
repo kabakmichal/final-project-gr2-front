@@ -1,4 +1,5 @@
 import React from "react";
+import CancelStart from "../CancelStart/CancelStart";
 import CategorySelect from "../CategorySelect/CategorySelect";
 import DateTimePicker from "../DateTimePicker/DateTimePicker";
 import DifficultSelect from "../DifficultSelect/DifficultSelect";
@@ -23,15 +24,16 @@ export const QuestTile = (props) => {
         <div className={styles.tile_title}>
           <p className={styles.tile_title_text}>{props.title}</p>
         </div>
-        <DateTimePicker/>
+        <DateTimePicker />
         {/* <div className={styles.tile_date}> {props.date}</div> */}
         <div className={styles.bottom_container}>
-          <CategorySelect/>
+          <CategorySelect />
           {/* <div className={`${styles.category} ${styles[props.type]}`}>
             <span className={styles.category_name}>
               {props.type.toUpperCase()}{" "}
             </span>
           </div> */}
+          <CancelStart />
         </div>
       </div>
     </>
