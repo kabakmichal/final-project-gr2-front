@@ -11,6 +11,8 @@ import { AddButton } from "../../Components/AddButton";
 import LogOut from "./logout.svg";
 
 export default function Dashboard() {
+  // const quests = useSelector(getQuests);
+  // console.log(quests);
   // const user = useSelector((state) => state.user);
   const user = "John’s";
   const userDisplay = user.email || "John’s";
@@ -55,7 +57,7 @@ export default function Dashboard() {
           <p className={css.user_name}>{userDisplay} Quest Log</p>
         </div>
         <div className={css.header_icons}>
-          <a className={css.header_challenge} >
+          <a className={css.header_challenge}>
             <svg className={css.header_challenge_icon} width="14" height="14">
               <TrophyIcon />
             </svg>
@@ -67,7 +69,35 @@ export default function Dashboard() {
           </a>
         </div>
       </header>
+<<<<<<< HEAD
       <ListOfTiles />
+=======
+      <div className={css.today_section}>
+        <p className={css.today_section_text}>TODAY</p>
+        <div className={css.today_section_cards}>
+          {/* <ul className={css.today_section_list}>{array}</ul> */}
+          <ListOfTiles />
+        </div>
+      </div>
+      {/* <div className={css.tomorrow_section}>
+        <p className={css.tomorrow_section_text}>TOMORROW</p>
+        <div className={css.tomorrow_section_cards}>
+          <ul className={css.tomorrow_section_list}>
+            {tomorrowQuestsArray.map((quest) => (
+              <li>
+                <QuestTile
+                  difficultyLevel={quest.hardness}
+                  title={quest.title}
+                  date={"Tomorrow, " + quest.date.slice(16, 21)}
+                  type={quest.type}
+                  isQuest={quest.isQuest}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div> */}
+>>>>>>> dev
       <a className={css.add_challenge} href="Dashboard.js">
         <svg className={css.add_challenge_icon} width="52" height="52">
           <use href="../public/assets/images/icons.svg#icon-add-button"></use>

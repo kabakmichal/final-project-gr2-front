@@ -39,10 +39,7 @@ export default function LoginForm(props) {
       );
       if (response.data.user.verify) {
         localStorage.setItem("isLogged", JSON.stringify(true));
-        // localStorage.setItem(
-        //   "isVerified",
-        //   JSON.stringify(response.data.user.verify)
-        // );
+        localStorage.setItem("token", JSON.stringify(response.data.token));
         // console.log(JSON.stringify(response.data.token));
       } else {
         throw new Error("User is not verified");
