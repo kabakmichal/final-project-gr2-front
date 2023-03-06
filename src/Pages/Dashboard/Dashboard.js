@@ -77,23 +77,6 @@ export default function Dashboard() {
           <ListOfTiles />
         </div>
       </div>
-      {/* <div className={css.tomorrow_section}>
-        <p className={css.tomorrow_section_text}>TOMORROW</p>
-        <div className={css.tomorrow_section_cards}>
-          <ul className={css.tomorrow_section_list}>
-            {tomorrowQuestsArray.map((quest) => (
-              <li>
-                <QuestTile
-                  difficultyLevel={quest.hardness}
-                  title={quest.title}
-                  date={"Tomorrow, " + quest.date.slice(16, 21)}
-                  type={quest.type}
-                  isQuest={quest.isQuest}
-                />
-              </li>
-            ))}
-          </ul>
         </div>
-      </div> */}
   );
 }
