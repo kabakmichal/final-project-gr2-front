@@ -69,9 +69,7 @@ export default function Dashboard() {
           </a>
         </div>
       </header>
-<<<<<<< HEAD
-      <ListOfTiles />
-=======
+
       <div className={css.today_section}>
         <p className={css.today_section_text}>TODAY</p>
         <div className={css.today_section_cards}>
@@ -97,13 +95,5 @@ export default function Dashboard() {
           </ul>
         </div>
       </div> */}
->>>>>>> dev
-      <a className={css.add_challenge} href="Dashboard.js">
-        <svg className={css.add_challenge_icon} width="52" height="52">
-          <use href="../public/assets/images/icons.svg#icon-add-button"></use>
-        </svg>
-      </a>
-      {/* <AddButton /> */}
-    </div>
   );
 }
