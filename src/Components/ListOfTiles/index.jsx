@@ -4,8 +4,7 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmQyODBiZjBlNzYwNGMzOWZmMTFiOSIsImlhdCI6MTY3ODE5MjAxOCwiZXhwIjoxNjc4MzY0ODE4fQ.mzArHRe2R_1VWhd1yZZX61dutspTlFdCpkGOMwSprag";
+// const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmQyODBiZjBlNzYwNGMzOWZmMTFiOSIsImlhdCI6MTY3ODE5MjAxOCwiZXhwIjoxNjc4MzY0ODE4fQ.mzArHRe2R_1VWhd1yZZX61dutspTlFdCpkGOMwSprag";
 // const token = localStorage.getItem("token");
 // const savetoarray = () =>
 //   axios.get("api/todos", { headers: { Authorization: `Bearer ${token}` } });
@@ -14,14 +13,14 @@ export const ListOfTiles = () => {
   const [objects, setObjects] = useState(null);
 
   useEffect(() => {
-    const getToDo = async () => {
-      console.log(token);
-      // const res =
-      await axios
-        .get("api/todos", { headers: { Authorization: `Bearer ${token}` } })
-        .then((res) => setObjects(res.data[0].todoListIds));
-    };
-    getToDo();
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token);
+    // const res =
+    axios
+      .get("api/todos", { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => setObjects(res.data[0].todoListIds));
+
+    // getToDo();
     console.log(objects);
   }, []);
 
