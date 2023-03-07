@@ -4,10 +4,12 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
-export const ListOfTiles = () => {
-  const [objects, setObjects] = useState(null);
+import { EditedTile } from "../EditedTile";
 
-  const token = localStorage.getItem("token").slice(1, -1);
+export const ListOfTiles = () => {
+  const [objects, setObjects] = useState([]);
+
+  const token = JSON.parse(localStorage.getItem("token"));
 
   const saveToArray = async () =>
     await axios.get("api/todos", {
@@ -17,7 +19,7 @@ export const ListOfTiles = () => {
   const addObject = () => {
     const newObject = {
       title: "New quest",
-      date: "Choose date",
+      date: "2023-03-07",
       type: "Job",
     };
     setObjects([...objects, newObject]);

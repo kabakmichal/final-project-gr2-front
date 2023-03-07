@@ -10,6 +10,8 @@ import { AddButton } from "../../Components/AddButton";
 
 import LogOut from "./logout.svg";
 
+import { EditedTile } from "../../Components/EditedTile";
+
 export default function Dashboard() {
   // const quests = useSelector(getQuests);
   // console.log(quests);
@@ -46,6 +48,7 @@ export default function Dashboard() {
         <div className={css.today_section_cards}>
           {/* <ul className={css.today_section_list}>{array}</ul> */}
           <ListOfTiles />
+          <EditedTile />
         </div>
       </div>
     </div>
