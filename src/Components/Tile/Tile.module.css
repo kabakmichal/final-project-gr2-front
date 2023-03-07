@@ -14,7 +14,7 @@
   width: 205px;
   height: 199px;
   border-radius: 10px;
-  background-color: #15395A;
+  background-color: #15395a;
   display: flex;
   /* justify-content: space-between; */
   flex-direction: column;
@@ -86,7 +86,7 @@
 
 .tile_title_chl {
   margin-top: 10px;
-  font-family: 'HelveticaNeueCyr';
+  font-family: "HelveticaNeueCyr";
   font-weight: 700;
   font-size: 16px;
   display: flex;
@@ -112,7 +112,7 @@
 }
 
 .tile_sign {
-  font-family: 'HelveticaNeueCyr';
+  font-family: "HelveticaNeueCyr";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -122,7 +122,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 
-  color: #B9C3C8;
+  color: #b9c3c8;
 }
 
 .tile_title_text {

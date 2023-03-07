@@ -8,23 +8,27 @@
   margin-bottom: 28px;
 }
 
-.today_section {
+.today_section,
+.done_section {
   margin-top: 30px;
 }
 
 .today_section,
-.tomorrow_section {
+.tomorrow_section,
+.done_section {
   margin-left: 5.5%;
   margin-right: 5.5%;
 }
 
 .today_section_cards,
-.tomorrow_section_cards {
+.tomorrow_section_cards,
+.done_section_cards {
   margin-bottom: 20px;
 }
 
 .today_section_list,
-.tomorrow_section_list {
+.tomorrow_section_list,
+.done_section_list {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;

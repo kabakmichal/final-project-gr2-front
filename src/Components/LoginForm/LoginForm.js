@@ -30,8 +30,8 @@ export default function LoginForm(props) {
         REGISTER_URL,
         // JSON.stringify({ email, password }),
         JSON.stringify({
-          email: "fmalin100@gmail.com",
-          password: "Jamajka123",
+          email: "kamilkrolik@hotmail.com",
+          password: "kkkkkk",
         }),
         {
           headers: { "Content-type": "application/json" },
