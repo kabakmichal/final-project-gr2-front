@@ -4,12 +4,24 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmQyODBiZjBlNzYwNGMzOWZmMTFiOSIsImlhdCI6MTY3ODA1MzUzNiwiZXhwIjoxNjc4MjI2MzM2fQ.TY9Qn1PbfZzGUYHAsWbVKhzPDH1uAYIwnzc9EidyXSQ"
-
-const savetoarray = () => axios.get("api/todos", { headers: { "Authorization": `Bearer ${token}` } })
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmQyODBiZjBlNzYwNGMzOWZmMTFiOSIsImlhdCI6MTY3ODE5MjAxOCwiZXhwIjoxNjc4MzY0ODE4fQ.mzArHRe2R_1VWhd1yZZX61dutspTlFdCpkGOMwSprag";
+// const token = localStorage.getItem("token");
+// const savetoarray = () =>
+//   axios.get("api/todos", { headers: { Authorization: `Bearer ${token}` } });
 
 export const ListOfTiles = () => {
   const [objects, setObjects] = useState(null);
+
+  useEffect(() => {
+    const getToDo = async () => {
+      console.log(token);
+      const res = await axios
+        .get("api/todos", { headers: { Authorization: `Bearer ${token}` } })
+        .then((res) => setObjects(res.data[0].todoListIds));
+    };
+    getToDo();
+  }, []);
 
   const addObject = () => {
     const newObject = {
@@ -23,20 +35,26 @@ export const ListOfTiles = () => {
   let todayQuests = [];
   let tomorrowQuests = [];
   const today = new Date().toISOString().slice(0, 10);
-  let tomorrow = ""
-  if ((parseInt(today.slice(8)) + 1).toString().length === 1) tomorrow = today.slice(0, 8) + "0" + (parseInt(today.slice(8)) + 1).toString();
+  let tomorrow = "";
+  if ((parseInt(today.slice(8)) + 1).toString().length === 1)
+    tomorrow =
+      today.slice(0, 8) + "0" + (parseInt(today.slice(8)) + 1).toString();
   else tomorrow = today.slice(0, 8) + (parseInt(today.slice(8)) + 1).toString();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await savetoarray().then(res => setObjects(res.data[0].todoListIds))
-    }
-    fetchData();
-  }, [])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await savetoarray().then((res) => setObjects(res.data[0].todoListIds));
+  //   };
+  //   fetchData();
+  // }, []);
 
-  if (objects === null) return <div>Loading...</div>
-  todayQuests = objects.filter(object => (object.date === today || object.type === "challenge"));
-  tomorrowQuests = objects.filter(object => (object.date === tomorrow && object.type === "quest"));
+  if (objects === null) return <div>Loading...</div>;
+  todayQuests = objects.filter(
+    (object) => object.date === today || object.type === "challenge"
+  );
+  tomorrowQuests = objects.filter(
+    (object) => object.date === tomorrow && object.type === "quest"
+  );
 
   return (
     <>
@@ -78,7 +96,6 @@ export const ListOfTiles = () => {
           </ul>
         </div>
       </div>
-
 
       {/* <ul className={styles.list_items}>
         {todayQuests.map((obj) => (
