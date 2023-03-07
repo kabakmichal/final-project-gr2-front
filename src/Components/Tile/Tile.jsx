@@ -6,6 +6,8 @@ import React from "react";
 // import { ReactComponent as Star } from "./star.svg";
 // import { ReactComponent as Cup } from "./cup.svg";
 import ConfirmedTile from "../ConfirmedTile/ConfirmedTile";
+import { EditedTile } from "../EditedTile";
+
 
 export const Tile = (props) => {
   return (
@@ -63,7 +65,6 @@ export const Tile = (props) => {
     //     </div>
     //   </div>
     // </>
+
   );
 };
-
-// export default QuestTile;

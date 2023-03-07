@@ -4,13 +4,19 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
-// const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmQyODBiZjBlNzYwNGMzOWZmMTFiOSIsImlhdCI6MTY3ODE5MjAxOCwiZXhwIjoxNjc4MzY0ODE4fQ.mzArHRe2R_1VWhd1yZZX61dutspTlFdCpkGOMwSprag";
-// const token = localStorage.getItem("token");
-// const savetoarray = () =>
-//   axios.get("api/todos", { headers: { Authorization: `Bearer ${token}` } });
+
+import { EditedTile } from "../EditedTile";
+
 
 export const ListOfTiles = () => {
-  const [objects, setObjects] = useState(null);
+  const [objects, setObjects] = useState([]);
+
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const saveToArray = async () =>
+    await axios.get("api/todos", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -26,7 +32,7 @@ export const ListOfTiles = () => {
   const addObject = () => {
     const newObject = {
       title: "New quest",
-      date: "Choose date",
+      date: "2023-03-07",
       type: "Job",
     };
     setObjects([...objects, newObject]);
@@ -41,12 +47,12 @@ export const ListOfTiles = () => {
       today.slice(0, 8) + "0" + (parseInt(today.slice(8)) + 1).toString();
   else tomorrow = today.slice(0, 8) + (parseInt(today.slice(8)) + 1).toString();
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await savetoarray().then((res) => setObjects(res.data[0].todoListIds));
-  //   };
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      await saveToArray().then((res) => setObjects(res.data[0].todoListIds));
+    };
+    fetchData();
+  }, []);
 
   if (objects === null) return <div>Loading...</div>;
   todayQuests = objects.filter(
@@ -96,31 +102,6 @@ export const ListOfTiles = () => {
           </ul>
         </div>
       </div>
-
-      {/* <ul className={styles.list_items}>
-        {todayQuests.map((obj) => (
-          <li key={obj.id} className={styles.list_item}>
-            <Tile
-              title={obj.title}
-              date={obj.date}
-              type={obj.category}
-              difficultyLevel={obj.difficulty}
-              isQuest={obj.type === "quest"}
-            />
-          </li>
-        ))}
-        {tomorrowQuests.map((obj) => (
-          <li key={obj.id} className={styles.list_item}>
-            <Tile
-              title={obj.title}
-              date={obj.date}
-              type={obj.category}
-              difficultyLevel={obj.difficulty}
-              isQuest={obj.type === "quest"}
-            />
-          </li>
-        ))}
-      </ul> */}
     </>
   );
 };
