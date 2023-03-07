@@ -4,7 +4,9 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
+
 import { EditedTile } from "../EditedTile";
+
 
 export const ListOfTiles = () => {
   const [objects, setObjects] = useState([]);
@@ -15,6 +17,17 @@ export const ListOfTiles = () => {
     await axios.get("api/todos", {
       headers: { Authorization: `Bearer ${token}` },
     });
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token);
+    // const res =
+    axios
+      .get("api/todos", { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => setObjects(res.data[0].todoListIds));
+
+    // getToDo();
+  }, []);
 
   const addObject = () => {
     const newObject = {
