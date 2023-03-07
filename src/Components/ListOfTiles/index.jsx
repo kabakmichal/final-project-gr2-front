@@ -21,7 +21,6 @@ export const ListOfTiles = () => {
       .then((res) => setObjects(res.data[0].todoListIds));
 
     // getToDo();
-    console.log(objects);
   }, []);
 
   const addObject = () => {
