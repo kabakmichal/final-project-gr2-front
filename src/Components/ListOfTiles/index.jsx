@@ -4,17 +4,22 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmQyODBiZjBlNzYwNGMzOWZmMTFiOSIsImlhdCI6MTY3ODA1MzUzNiwiZXhwIjoxNjc4MjI2MzM2fQ.TY9Qn1PbfZzGUYHAsWbVKhzPDH1uAYIwnzc9EidyXSQ"
-
-const savetoarray = () => axios.get("api/todos", { headers: { "Authorization": `Bearer ${token}` } })
+import { EditedTile } from "../EditedTile";
 
 export const ListOfTiles = () => {
-  const [objects, setObjects] = useState(null);
+  const [objects, setObjects] = useState([]);
+
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const saveToArray = async () =>
+    await axios.get("api/todos", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
 
   const addObject = () => {
     const newObject = {
       title: "New quest",
-      date: "Choose date",
+      date: "2023-03-07",
       type: "Job",
     };
     setObjects([...objects, newObject]);
@@ -23,20 +28,26 @@ export const ListOfTiles = () => {
   let todayQuests = [];
   let tomorrowQuests = [];
   const today = new Date().toISOString().slice(0, 10);
-  let tomorrow = ""
-  if ((parseInt(today.slice(8)) + 1).toString().length === 1) tomorrow = today.slice(0, 8) + "0" + (parseInt(today.slice(8)) + 1).toString();
+  let tomorrow = "";
+  if ((parseInt(today.slice(8)) + 1).toString().length === 1)
+    tomorrow =
+      today.slice(0, 8) + "0" + (parseInt(today.slice(8)) + 1).toString();
   else tomorrow = today.slice(0, 8) + (parseInt(today.slice(8)) + 1).toString();
 
   useEffect(() => {
     const fetchData = async () => {
-      await savetoarray().then(res => setObjects(res.data[0].todoListIds))
-    }
+      await saveToArray().then((res) => setObjects(res.data[0].todoListIds));
+    };
     fetchData();
-  }, [])
+  }, []);
 
-  if (objects === null) return <div>Loading...</div>
-  todayQuests = objects.filter(object => (object.date === today || object.type === "challenge"));
-  tomorrowQuests = objects.filter(object => (object.date === tomorrow && object.type === "quest"));
+  if (objects === null) return <div>Loading...</div>;
+  todayQuests = objects.filter(
+    (object) => object.date === today || object.type === "challenge"
+  );
+  tomorrowQuests = objects.filter(
+    (object) => object.date === tomorrow && object.type === "quest"
+  );
 
   return (
     <>
@@ -78,32 +89,6 @@ export const ListOfTiles = () => {
           </ul>
         </div>
       </div>
-
-
-      {/* <ul className={styles.list_items}>
-        {todayQuests.map((obj) => (
-          <li key={obj.id} className={styles.list_item}>
-            <Tile
-              title={obj.title}
-              date={obj.date}
-              type={obj.category}
-              difficultyLevel={obj.difficulty}
-              isQuest={obj.type === "quest"}
-            />
-          </li>
-        ))}
-        {tomorrowQuests.map((obj) => (
-          <li key={obj.id} className={styles.list_item}>
-            <Tile
-              title={obj.title}
-              date={obj.date}
-              type={obj.category}
-              difficultyLevel={obj.difficulty}
-              isQuest={obj.type === "quest"}
-            />
-          </li>
-        ))}
-      </ul> */}
     </>
   );
 };
