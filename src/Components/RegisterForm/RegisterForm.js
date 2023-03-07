@@ -30,12 +30,12 @@ export default function RegisterForm(props) {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        // JSON.stringify({ username: name, email, password }),
-        JSON.stringify({
-          username: "Karol",
-          email: "fmalin100@gmail.com",
-          password: "Jamajka123",
-        }),
+        JSON.stringify({ username: name, email, password }),
+        // JSON.stringify({
+        //   username: "Karol",
+        //   email: "fmalin100@gmail.com",
+        //   password: "Jamajka123",
+        // }),
         {
           headers: { "Content-type": "application/json" },
         }
