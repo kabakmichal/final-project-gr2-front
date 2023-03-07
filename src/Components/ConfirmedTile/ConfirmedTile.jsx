@@ -8,7 +8,7 @@ export default function ConfirmedTile(props) {
     <>
       <div
         className={
-          props.isQuest ? styles.tile_questbg : styles.tile_challengebg
+          props.type === "quest" ? styles.tile_questbg : styles.tile_challengebg
         }
       >
         <div className={styles.top_container}>
@@ -17,16 +17,13 @@ export default function ConfirmedTile(props) {
             <span
               className={`${styles.dot} ${styles[props.difficultyLevel]}`}
             ></span>
-            <p className={styles.difficulty_level}>
-              {props.difficultyLevel.charAt(0).toUpperCase() +
-                props.difficultyLevel.slice(1).toLowerCase()}
-            </p>
+            <p className={styles.difficulty_level}>{props.difficultyLevel}</p>
           </div>
           <div className={styles.picture}>
-            {props.isQuest ? <Star /> : <Cup />}
+            {props.type === "quest" ? <Star /> : <Cup />}
           </div>
         </div>
-        {props.isQuest ? (
+        {props.type === "quest" ? (
           <>
             <div className={styles.tile_title}>
               <p className={styles.tile_title_text}>{props.title}</p>
@@ -43,9 +40,7 @@ export default function ConfirmedTile(props) {
         <div className={styles.tile_date}> {props.date}</div>
         <div className={styles.bottom_container}>
           <div className={`${styles.category} ${styles[props.type]}`}>
-            <span className={styles.category_name}>
-              {props.type.toUpperCase()}{" "}
-            </span>
+            <span className={styles.category_name}>{props.type} </span>
           </div>
         </div>
       </div>
