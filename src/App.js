@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Dashboard from "./Pages/Dashboard/Dashboard.js";
-// ========================
+
 import Home from "./Pages/Home/Home";
 import { Provider } from "react-redux";
 import { store } from "./redux/quest/store";
@@ -26,5 +26,6 @@ function App() {
     // { <Dashboard /> }
   );
 }
+
 
 export default App;
