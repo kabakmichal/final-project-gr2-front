@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import styles from "./CategorySelect.module.css";
 
-const CategorySelect = () => {
+const CategorySelect = (props) => {
   const CategoryOptions = [
     { value: "STUFF", label: "STUFF", bgcolor: "#B9C3C8" },
     { value: "FAMILY", label: "FAMILY", bgcolor: "#FFE6D3" },
@@ -25,15 +25,15 @@ const CategorySelect = () => {
       return { ...styles, background: data.bgcolor };
     },
   };
-  //   const handleChange = (selectedOption) => {
-  //     console.log("handleChange", selectedOption);
-  //   };
+  const handleChange = (selectedOption) => {
+    props.onSelection(selectedOption);
+  };
 
   return (
     <div style={{ width: "115px" }}>
       <Select
         options={CategoryOptions}
-        // onChange={handleChange}
+        onChange={handleChange}
         styles={colorStyles}
       />
     </div>
