@@ -7,7 +7,7 @@ import { ReactComponent as TrophyIcon } from "./trophy.svg";
 
 import { ListOfTiles } from "../../Components/ListOfTiles";
 import { AddButton } from "../../Components/AddButton";
-
+import { useNavigate } from "react-router-dom";
 import LogOut from "./logout.svg";
 
 export default function Dashboard() {
@@ -17,34 +17,12 @@ export default function Dashboard() {
   const user = "John’s";
   const userDisplay = user.email || "John’s";
 
+const navigate = useNavigate();
 
-
-  // lepiej byłoby zrobić jedną posortowaną już tablice i tam w zależności od isQuest wywoływać Quest albo Challenge
-
-  // const array = [
-  //   ...todayQuestsArray.map((quest) => (
-  //     <li>
-  //       <QuestTile
-  //         difficultyLevel={quest.hardness}
-  //         title={quest.title}
-  //         date={"Today, " + quest.date.slice(16, 21)}
-  //         type={quest.type}
-  //         isQuest={quest.isQuest}
-  //       />
-  //     </li>
-  //   )),
-  //   ...challenges.map((quest) => (
-  //     <li>
-  //       <ChallengeTile
-  //         difficultyLevel={quest.hardness}
-  //         title={quest.title}
-  //         date={quest.date}
-  //         type={quest.type}
-  //         isQuest={quest.isQuest}
-  //       />
-  //     </li>
-  //   )),
-  // ];
+  const logOut = () => { 
+    localStorage.clear();
+    navigate("/")
+  }
 
   return (
     <div>
@@ -62,21 +40,18 @@ export default function Dashboard() {
               <TrophyIcon />
             </svg>
           </a>
-          <a className={css.header_logout} href="Dashboard.js">
-            <button type="button" className={css.header_button}>
+            <button onClick={logOut} type="button" className={css.header_button}>
               <img src={LogOut} alt="Logout"></img>
             </button>
-          </a>
         </div>
       </header>
-
-      <div className={css.today_section}>
-        <p className={css.today_section_text}>TODAY</p>
-        <div className={css.today_section_cards}>
-          {/* <ul className={css.today_section_list}>{array}</ul> */}
-          <ListOfTiles />
-        </div>
-      </div>
-        </div>
+      <ListOfTiles />
+      <a className={css.add_challenge} href="Dashboard.js">
+        <svg className={css.add_challenge_icon} width="52" height="52">
+          <use href="../public/assets/images/icons.svg#icon-add-button"></use>
+        </svg>
+      </a>
+      {/* <AddButton /> */}
+    </div>
   );
 }
