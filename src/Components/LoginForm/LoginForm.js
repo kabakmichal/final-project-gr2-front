@@ -28,11 +28,13 @@ export default function LoginForm(props) {
     try {
       const response = await axios.put(
         REGISTER_URL,
-        // JSON.stringify({ email, password }),
-        JSON.stringify({
-          email: "kamilkrolik@hotmail.com",
-          password: "kkkkkk",
-        }),
+
+        JSON.stringify({ email, password }),
+        // JSON.stringify({
+        //   email: "fmalin100@gmail.com",
+        //   password: "Jamajka123",
+        // }),
+
         {
           headers: { "Content-type": "application/json" },
         }

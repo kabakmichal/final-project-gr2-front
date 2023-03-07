@@ -1,10 +1,12 @@
 import React from "react";
-import CategorySelect from "../CategorySelect/CategorySelect";
-import DateTimePicker from "../DateTimePicker/DateTimePicker";
-import DifficultSelect from "../DifficultSelect/DifficultSelect";
-import styles from "./Tile.module.css";
-import { ReactComponent as Star } from "./star.svg";
-import { ReactComponent as Cup } from "./cup.svg";
+// import CategorySelect from "../CategorySelect/CategorySelect";
+// import DateTimePicker from "../DateTimePicker/DateTimePicker";
+// import DifficultSelect from "../DifficultSelect/DifficultSelect";
+// import styles from "./Tile.module.css";
+// import { ReactComponent as Star } from "./star.svg";
+// import { ReactComponent as Cup } from "./cup.svg";
+import ConfirmedTile from "../ConfirmedTile/ConfirmedTile";
+import { EditedTile } from "../EditedTile";
 
 export const Tile = ({
   status = "done",
@@ -15,6 +17,7 @@ export const Tile = ({
 }) => {
   console.log(status, difficultyLevel, title, date, type);
 
+export const Tile = (props) => {
   return (
     <>
       <div
@@ -56,7 +59,6 @@ export const Tile = ({
         </div>
       </div>
     </>
+
   );
 };
-
-// export default QuestTile;

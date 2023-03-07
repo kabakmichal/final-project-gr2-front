@@ -4,14 +4,34 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
+
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MDc4ZDNjN2FhYjEzOGE2ZTI0MGMxYiIsImlhdCI6MTY3ODIyMzY3MSwiZXhwIjoxNjc4Mzk2NDcxfQ.zq_cMyIRaAkSeqRGxKGknYVOBN7PeRRvekq45gtAWxs";
 
 const savetoarray = () =>
   axios.get("api/todos", { headers: { Authorization: `Bearer ${token}` } });
 
+
 export const ListOfTiles = () => {
-  const [objects, setObjects] = useState(null);
+  const [objects, setObjects] = useState([]);
+
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const saveToArray = async () =>
+    await axios.get("api/todos", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token);
+    // const res =
+    axios
+      .get("api/todos", { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => setObjects(res.data[0].todoListIds));
+
+    // getToDo();
+  }, []);
 
   const addObject = () => {
     const newObject = {
@@ -108,30 +128,6 @@ export const ListOfTiles = () => {
         </div>
       </div>
 
-      {/* <ul className={styles.list_items}>
-        {todayQuests.map((obj) => (
-          <li key={obj.id} className={styles.list_item}>
-            <Tile
-              title={obj.title}
-              date={obj.date}
-              type={obj.category}
-              difficultyLevel={obj.difficulty}
-              isQuest={obj.type === "quest"}
-            />
-          </li>
-        ))}
-        {tomorrowQuests.map((obj) => (
-          <li key={obj.id} className={styles.list_item}>
-            <Tile
-              title={obj.title}
-              date={obj.date}
-              type={obj.category}
-              difficultyLevel={obj.difficulty}
-              isQuest={obj.type === "quest"}
-            />
-          </li>
-        ))}
-      </ul> */}
     </>
   );
 };
