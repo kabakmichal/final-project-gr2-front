@@ -16,11 +16,13 @@ export const ListOfTiles = () => {
   useEffect(() => {
     const getToDo = async () => {
       console.log(token);
-      const res = await axios
+      // const res =
+      await axios
         .get("api/todos", { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => setObjects(res.data[0].todoListIds));
     };
     getToDo();
+    console.log(objects);
   }, []);
 
   const addObject = () => {
