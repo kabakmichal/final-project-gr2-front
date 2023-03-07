@@ -4,9 +4,7 @@ import { Tile } from "../Tile/Tile.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
-
 import { EditedTile } from "../EditedTile";
-
 
 export const ListOfTiles = () => {
   const [objects, setObjects] = useState([]);
@@ -55,12 +53,8 @@ export const ListOfTiles = () => {
   }, []);
 
   if (objects === null) return <div>Loading...</div>;
-  todayQuests = objects.filter(
-    (object) => object.date === today || object.type === "challenge"
-  );
-  tomorrowQuests = objects.filter(
-    (object) => object.date === tomorrow && object.type === "quest"
-  );
+  todayQuests = objects.filter((object) => object.date === today);
+  tomorrowQuests = objects.filter((object) => object.date === tomorrow);
 
   return (
     <>
@@ -75,9 +69,8 @@ export const ListOfTiles = () => {
                 <Tile
                   title={obj.title}
                   date={obj.date}
-                  type={obj.category}
                   difficultyLevel={obj.difficulty}
-                  isQuest={obj.type === "quest"}
+                  type={obj.type}
                 />
               </li>
             ))}
