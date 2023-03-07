@@ -10,6 +10,8 @@ import { AddButton } from "../../Components/AddButton";
 import { useNavigate } from "react-router-dom";
 import LogOut from "./logout.svg";
 
+import { EditedTile } from "../../Components/EditedTile";
+
 export default function Dashboard() {
   // const quests = useSelector(getQuests);
   // console.log(quests);
@@ -17,6 +19,7 @@ export default function Dashboard() {
   const user = "John’s";
   const userDisplay = user.email || "John’s";
 
+<<<<<<< HEAD
 const navigate = useNavigate();
 
   const logOut = () => { 
@@ -24,6 +27,8 @@ const navigate = useNavigate();
     navigate("/")
   }
 
+=======
+>>>>>>> 794c11f45b6cd2f8b9d87ceca91b8ba83a555a17
   return (
     <div>
       <header>
@@ -45,6 +50,7 @@ const navigate = useNavigate();
             </button>
         </div>
       </header>
+<<<<<<< HEAD
       <ListOfTiles />
       <a className={css.add_challenge} href="Dashboard.js">
         <svg className={css.add_challenge_icon} width="52" height="52">
@@ -52,6 +58,17 @@ const navigate = useNavigate();
         </svg>
       </a>
       {/* <AddButton /> */}
+=======
+
+      <div className={css.today_section}>
+        <p className={css.today_section_text}>TODAY</p>
+        <div className={css.today_section_cards}>
+          {/* <ul className={css.today_section_list}>{array}</ul> */}
+          <ListOfTiles />
+          <EditedTile />
+        </div>
+      </div>
+>>>>>>> 794c11f45b6cd2f8b9d87ceca91b8ba83a555a17
     </div>
   );
 }
