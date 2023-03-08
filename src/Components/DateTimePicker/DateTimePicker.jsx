@@ -36,7 +36,7 @@ const DateTimePicker = ({ deadline }, props) => {
       <Flatpickr
         options={{
           dateFormat: "Y-m-d",
-          height:"14px",
+          height: "14px",
           enableTime: true,
           time_24hr: true,
           minTime:

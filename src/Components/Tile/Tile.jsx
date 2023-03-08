@@ -8,7 +8,6 @@ import React from "react";
 import ConfirmedTile from "../ConfirmedTile/ConfirmedTile";
 import { EditedTile } from "../EditedTile";
 
-
 export const Tile = (props) => {
   return (
     <ConfirmedTile
@@ -16,7 +15,7 @@ export const Tile = (props) => {
       date={props.date}
       type={props.type}
       difficultyLevel={props.difficultyLevel}
-      isQuest={props.isQuest}
+      category={props.category}
     />
     // <>
     //   <div
@@ -65,6 +64,5 @@ export const Tile = (props) => {
     //     </div>
     //   </div>
     // </>
-
   );
 };
