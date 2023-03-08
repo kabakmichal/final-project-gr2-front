@@ -44,7 +44,9 @@ export const ListOfTiles = () => {
 
   if (objects === null) return <div>Loading...</div>;
   todayQuests = objects.filter((object) => object.date === today);
-  tomorrowQuests = objects.filter((object) => object.date === tomorrow);
+  tomorrowQuests = objects.filter(
+    (object) => object.date === tomorrow && object.status === "undone"
+  );
   let doneQuests = objects.filter((object) => object.status === "done");
   return (
     <>
@@ -85,8 +87,8 @@ export const ListOfTiles = () => {
             ))}
           </ul>
         </div>
+        <DoneSection done={doneQuests} />
       </div>
-      <DoneSection done={doneQuests} />
     </>
   );
 };
