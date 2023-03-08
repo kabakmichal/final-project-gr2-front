@@ -63,27 +63,31 @@ export const EditedTile = () => {
             <DifficultSelect onSelection={handleDifficult} />
           </div>
           <div className={styles.picture}>
-            <Star/>
+            <Star />
           </div>
         </div>
         <div className={styles.tile_title}>
           <p className={styles.tile_title_text}>Creating quest</p>
 
-          <input className={styles.input}></input>
-        <DateTimePicker />
+          <input className={styles.input} onChange={handleInput}></input>
+          <DateTimePicker />
         </div>
         <div className={styles.bottom_container}>
           <div className={styles.bottom_row}>
-            <CategorySelect />
+            <CategorySelect onSelection={handleCategory} />
             <button
-            type="button"
-            className={styles.cancel_btn}
-            onClick={cancelCreating}
+              type="button"
+              className={styles.cancel_btn}
+              onClick={cancelCreating}
             >
-            <Clear/>
+              <Clear />
             </button>
-            <button type="button" className={styles.create_btn} onClick={sendTodo}>
-            CREATE
+            <button
+              type="button"
+              className={styles.create_btn}
+              onClick={sendTodo}
+            >
+              CREATE
             </button>
           </div>
         </div>

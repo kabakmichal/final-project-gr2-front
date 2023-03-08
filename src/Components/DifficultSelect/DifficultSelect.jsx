@@ -23,7 +23,6 @@ function DifficultSelect(props) {
   };
 
   const handleChange = (selectedOption) => {
-    // console.log(selectedOption.value);
     props.onSelection(selectedOption);
   };
   return (
