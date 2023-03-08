@@ -4,6 +4,8 @@ import styles from "./DateTimePicker.module.css";
 import Calendar from "./calendar.svg";
 import React from "react";
 
+const dateContext = React.createContext();
+
 const DateTimePicker = ({ deadline }, props) => {
   const handleChange = (selectedDates) => {
     const selectedDate = selectedDates[0];
@@ -25,8 +27,8 @@ const DateTimePicker = ({ deadline }, props) => {
     parts[2] = day;
 
     const finalDate = parts.join("-");
-    // console.log(finalDate);
-    props.onSelection(finalDate);
+
+    localStorage.setItem("date", finalDate);
   };
 
   return (

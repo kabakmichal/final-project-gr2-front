@@ -13,6 +13,8 @@ export const EditedTile = () => {
     console.log(selectedDifficult.value);
   };
   //===================================
+  const newTodo = {};
+  //====================
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategory = (selectedCategory) => {
@@ -29,14 +31,23 @@ export const EditedTile = () => {
   //=====================================
   const [selectedDate, setSelectedDate] = useState("");
 
-  const handleDate = (date) => {
-    setSelectedDate(date);
-    console.log(setSelectedDate(date));
+  const getDate = () => {
+    const date = localStorage.getItem("date");
+    return date;
   };
   //=====================================
 
+  const createTodoObj = () => {
+    const date = getDate();
+    const newTodo = {
+      date: date,
+    };
+    return newTodo;
+  };
+
   const sendTodo = () => {
-    console.log("sending todo");
+    const todo = createTodoObj();
+    console.log(todo);
   };
 
   const cancelCreating = () => {
@@ -60,7 +71,7 @@ export const EditedTile = () => {
             onChange={handleInput}
           ></input>
         </div>
-        <DateTimePicker onSelection={handleDate} />
+        <DateTimePicker />
         <CategorySelect onSelection={handleCategory} />
         <button
           type="button"

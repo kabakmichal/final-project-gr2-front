@@ -16,17 +16,6 @@ export const ListOfTiles = () => {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("token"));
-    console.log(token);
-    // const res =
-    axios
-      .get("api/todos", { headers: { Authorization: `Bearer ${token}` } })
-      .then((res) => setObjects(res.data[0].todoListIds));
-
-    // getToDo();
-  }, []);
-
   const addObject = () => {
     const newObject = {
       title: "New quest",
