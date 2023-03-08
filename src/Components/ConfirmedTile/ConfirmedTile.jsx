@@ -3,6 +3,7 @@ import styles from "./ConfirmedTile.module.css";
 import { ReactComponent as Star } from "./star.svg";
 import { ReactComponent as Cup } from "./cup.svg";
 import axios from "../../Api/axios";
+import Plus from "./plus.svg";
 
 export default function ConfirmedTile(props) {
   const deleteTask = async (todoId) => {
@@ -56,7 +57,9 @@ export default function ConfirmedTile(props) {
           <div className={`${styles.category} ${styles[props.category]}`}>
             <span className={styles.category_name}>{props.category} </span>
           </div>
-          <button onClick={() => deleteTask(props.id)}>X</button>
+          <button className={styles.btn} onClick={() => deleteTask(props.id)}>
+            <img className={styles.delete} src={Plus} alt="Plus icon"></img>
+          </button>
         </div>
       </div>
     </>

@@ -181,3 +181,21 @@
   align-items: center;
   font-weight: 400;
 }
+
+.delete {
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: #ff851c;
+  cursor: pointer;
+  transform: rotate(45deg);
+}
+
+.btn {
+  display: flex;
+  justify-content: right;
+  align-items: end;
+  background-color: transparent;
+  padding-right: 10px;
+}
