@@ -21,17 +21,14 @@ const DifficultOptions = [
                 textShadow:"none"
             })
         };
-    return (
-        <Select
-        components={{ DropdownIndicator:() => <Arrow/>, IndicatorSeparator:() => null }}
-        options={DifficultOptions} styles={style}/>
-    );
-}
-
-  const handleChange = (selectedOption) => {
+        
+        const handleChange = (selectedOption) => {
     // console.log(selectedOption.value);
     props.onSelection(selectedOption);
   };
+}
+
+  
 
   return (
     <Select options={DifficultOptions} styles={style} onChange={handleChange} />
