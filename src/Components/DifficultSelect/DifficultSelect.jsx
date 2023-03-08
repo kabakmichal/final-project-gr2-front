@@ -8,31 +8,27 @@ const DifficultOptions = [
   { value: "Hard", label: "🔴 Hard" },
 ];
 
-    function DifficultSelect() {
-        const style = {
-            control: base => ({
-                ...base,
-                border: "none",
-                boxShadow: "none",
-                fontSize:"14px",
-                color:"#B9C3C8",
-                marginLeft:"-20px",
-                backgroundImage: "none",
-                textShadow:"none"
-            })
-        };
-        
-        const handleChange = (selectedOption) => {
+function DifficultSelect() {
+  const style = {
+    control: (base) => ({
+      ...base,
+      border: "none",
+      boxShadow: "none",
+      fontSize: "14px",
+      color: "#B9C3C8",
+      marginLeft: "-20px",
+      backgroundImage: "none",
+      textShadow: "none",
+    }),
+  };
+
+  const handleChange = (selectedOption) => {
     // console.log(selectedOption.value);
     props.onSelection(selectedOption);
   };
-}
-
-  
-
   return (
     <Select options={DifficultOptions} styles={style} onChange={handleChange} />
   );
-};
+}
 
 export default DifficultSelect;
