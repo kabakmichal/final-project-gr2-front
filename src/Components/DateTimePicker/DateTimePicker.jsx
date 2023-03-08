@@ -8,6 +8,7 @@ function DateTimePicker({ deadline, handleDateChange }) {
     <div className={styles.date}>
       <Flatpickr
         options={{
+          height:"14px",
           enableTime: true,
           time_24hr: true,
           minTime:

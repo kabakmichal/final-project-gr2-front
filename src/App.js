@@ -10,6 +10,7 @@ import { PrivateRoute } from "./Components/PrivateRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+
   return (
     // <Router>
     <Provider store={store}>

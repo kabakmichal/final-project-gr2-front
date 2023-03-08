@@ -1,5 +1,4 @@
 input {
-    max-width: 100px;
     border: none;
     font-size: 14px;
     background-color: transparent;
@@ -8,8 +7,16 @@ input {
 }
 
 .date {
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    height: 14px;
+}
+
+.date input {
+ padding: 0;
+ margin: 0;
+ max-width: 100px;
+
 }
 
 button {
