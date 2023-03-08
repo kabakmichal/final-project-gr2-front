@@ -71,6 +71,7 @@ export const ListOfTiles = () => {
                   date={obj.date}
                   difficultyLevel={obj.difficulty}
                   type={obj.type}
+                  category={obj.category}
                 />
               </li>
             ))}
@@ -86,8 +87,9 @@ export const ListOfTiles = () => {
                 <Tile
                   title={obj.title}
                   date={obj.date}
-                  type={obj.category}
+                  type={obj.type}
                   difficultyLevel={obj.difficulty}
+                  category={obj.category}
                   isQuest={obj.type === "quest"}
                 />
               </li>
