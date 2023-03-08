@@ -2,12 +2,16 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import styles from "./DateTimePicker.module.css";
 import Calendar from "./calendar.svg";
+// import { useState } from "react";
+// const [date, setDate] = useState("");
 
 function DateTimePicker({ deadline, handleDateChange }) {
+  // const handleDateChange =
   return (
     <div className={styles.date}>
       <Flatpickr
         options={{
+          dateFormat: "Y-m-d",
           enableTime: true,
           time_24hr: true,
           minTime:
@@ -25,6 +29,9 @@ function DateTimePicker({ deadline, handleDateChange }) {
         data-input
         data-enable-time
         value={deadline}
+        onChange={(date, dateStr) => {
+          console.log(dateStr);
+        }}
         // onChange={(date) => {
         //   handleDateChange(new Date(date));
         // }}
