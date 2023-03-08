@@ -48,6 +48,7 @@ export const ListOfTiles = () => {
     (object) => object.date === tomorrow && object.status === "undone"
   );
   let doneQuests = objects.filter((object) => object.status === "done");
+
   return (
     <>
       <AddButton onButtonClick={addObject}></AddButton>
@@ -58,6 +59,7 @@ export const ListOfTiles = () => {
             {todayQuests.map((obj) => (
               <li key={obj._id} className={styles.list_item}>
                 <Tile
+                  id={obj._id}
                   title={obj.title}
                   date={obj.date}
                   difficultyLevel={obj.difficulty}
@@ -76,6 +78,7 @@ export const ListOfTiles = () => {
             {tomorrowQuests.map((obj) => (
               <li key={obj._id} className={styles.list_item}>
                 <Tile
+                  id={obj._id}
                   title={obj.title}
                   date={obj.date}
                   type={obj.type}

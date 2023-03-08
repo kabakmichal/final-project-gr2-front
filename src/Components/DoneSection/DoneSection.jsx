@@ -5,7 +5,6 @@ import { Tile } from "../Tile/Tile";
 export const DoneSection = ({ done }) => {
   const [open, Done] = useState(false);
   const toggle = () => Done(!open);
-
   return (
     <>
       <div className={styles.done_top}>
@@ -19,6 +18,7 @@ export const DoneSection = ({ done }) => {
           {done.map((obj) => (
             <li key={obj._id} className={styles.done_item}>
               <Tile
+                id={obj._id}
                 title={obj.title}
                 date={obj.date}
                 type={obj.category}

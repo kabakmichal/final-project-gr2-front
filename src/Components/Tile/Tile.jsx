@@ -11,6 +11,7 @@ import { EditedTile } from "../EditedTile";
 export const Tile = (props) => {
   return (
     <ConfirmedTile
+      id={props.id}
       title={props.title}
       date={props.date}
       type={props.type}
