@@ -6,21 +6,24 @@
 .list_item {
   margin-right: 25px;
   margin-bottom: 28px;
-}
-
-.today_section {
-  margin-top: 30px;
+  animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .today_section,
 .tomorrow_section {
-  margin-left: 5.5%;
-  margin-right: 5.5%;
+  padding: 30px;
 }
 
 .today_section_cards,
 .tomorrow_section_cards {
-  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  gap: 28px;
+  padding-left: 5.5%;
+  padding-right: 5.5%;
 }
 
 .today_section_list,
@@ -28,4 +31,19 @@
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: start;
+}
+
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }

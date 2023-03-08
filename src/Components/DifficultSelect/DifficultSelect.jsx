@@ -3,12 +3,13 @@ import React from "react";
 import { ReactComponent as Arrow } from "./arrow.svg";
 
 const DifficultOptions = [
-  { value: "Easy", label: "🟢 Easy" },
-  { value: "Normal", label: "🔵 Normal" },
-  { value: "Hard", label: "🔴 Hard" },
+  { value: "easy", label: "🟢 Easy" },
+  { value: "normal", label: "🔵 Normal" },
+  { value: "hard", label: "🔴 Hard" },
 ];
 
-function DifficultSelect(props) {
+function DifficultSelect({ onChange }) {
+  // function DifficultSelect(props) {
   const style = {
     control: (base) => ({
       ...base,
@@ -23,10 +24,11 @@ function DifficultSelect(props) {
   };
 
   const handleChange = (selectedOption) => {
-    props.onSelection(selectedOption);
+    // props.onSelection(selectedOption);
   };
   return (
-    <Select options={DifficultOptions} styles={style} onChange={handleChange} />
+    <Select options={DifficultOptions} styles={style} onChange={onChange} />
+    // <Select options={DifficultOptions} styles={style} onChange={handleChange} />
   );
 }
 

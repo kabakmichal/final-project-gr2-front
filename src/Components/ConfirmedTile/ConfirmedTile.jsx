@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import styles from "./ConfirmedTile.module.css";
 import { ReactComponent as Star } from "./star.svg";
 import { ReactComponent as Cup } from "./cup.svg";
+import axios from "../../Api/axios";
 
 export default function ConfirmedTile(props) {
-  //   const [edit, setEdit] = useState(false);
-  //   console.log(edit);
-  //   const handleStateChange = () => {
-  //     setEdit(!edit);
-  // onClick();
-  // console.log(edit);
-  //   };
+
+  const deleteTask = async (todoId) => {
+    // return console.log(todoId);
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      await axios.delete(`api/todos/${todoId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      document.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <div
@@ -25,10 +33,7 @@ export default function ConfirmedTile(props) {
             <span
               className={`${styles.dot} ${styles[props.difficultyLevel]}`}
             ></span>
-            <p className={styles.difficulty_level}>
-              {props.difficultyLevel.charAt(0).toUpperCase() +
-                props.difficultyLevel.slice(1)}
-            </p>
+            <p className={styles.difficulty_level}>{props.difficultyLevel}</p>
           </div>
           <div className={styles.picture}>
             {props.type === "quest" ? <Star /> : <Cup />}
@@ -55,6 +60,7 @@ export default function ConfirmedTile(props) {
               {props.category.toUpperCase()}{" "}
             </span>
           </div>
+          <button onClick={() => deleteTask(props.id)}>X</button>
         </div>
       </div>
     </>

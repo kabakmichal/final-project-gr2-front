@@ -16,6 +16,7 @@ export const Tile = (props) => {
   console.log(edit);
   return (
     <ConfirmedTile
+      id={props.id}
       title={props.title}
       date={props.date}
       type={props.type}
