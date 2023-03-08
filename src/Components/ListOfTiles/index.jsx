@@ -19,9 +19,16 @@ export const ListOfTiles = () => {
 
   const addObject = () => {
     const newObject = {
-      title: "New quest",
-      date: "2023-03-07",
-      type: "Job",
+      // title: "New quest",
+      // date: "2023-03-07",
+      // type: "Job",
+      title: "",
+      difficulty: "",
+      date: "2023-03-08",
+      time: "23:00:00",
+      status: "undone",
+      category: "",
+      type: "quest",
     };
     setObjects([...objects, newObject]);
   };
