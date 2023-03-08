@@ -16,25 +16,26 @@ export default function Dashboard() {
   // const quests = useSelector(getQuests);
   // console.log(quests);
   // const user = useSelector((state) => state.user);
-  const user = "John’s";
-  const userDisplay = user.email || "John’s";
+  const user = JSON.parse(localStorage.getItem("user"));
 
-const navigate = useNavigate();
+  // const userDisplay = user.email || "John’s";
 
-  const logOut = () => { 
+  const navigate = useNavigate();
+
+  const logOut = () => {
     localStorage.clear();
-    navigate("/")
-  }
+    navigate("/");
+  };
 
   return (
     <div>
       <header>
-        <a href="Dashboard.js" className={css.header_logo}>
+        <a href="/dashboard" className={css.header_logo}>
           Questify
         </a>
         <div className={css.header_menu_user}>
-          <div className={css.user_logo}>{userDisplay[0]}</div>
-          <p className={css.user_name}>{userDisplay} Quest Log</p>
+          <div className={css.user_logo}>{user[0]}</div>
+          <p className={css.user_name}>{user} Quests Log</p>
         </div>
         <div className={css.header_icons}>
           <a className={css.header_challenge}>
@@ -42,9 +43,9 @@ const navigate = useNavigate();
               <TrophyIcon />
             </svg>
           </a>
-            <button onClick={logOut} type="button" className={css.header_button}>
-              <img src={LogOut} alt="Logout"></img>
-            </button>
+          <button onClick={logOut} type="button" className={css.header_button}>
+            <img src={LogOut} alt="Logout"></img>
+          </button>
         </div>
       </header>
 
