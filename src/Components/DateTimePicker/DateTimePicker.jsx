@@ -11,7 +11,7 @@ function DateTimePicker({ deadline, handleDateChange }) {
     <div className={styles.date}>
       <Flatpickr
         options={{
-          dateFormat: "Y-m-d",
+          height: "14px",
           enableTime: true,
           time_24hr: true,
           minTime:
@@ -29,11 +29,8 @@ function DateTimePicker({ deadline, handleDateChange }) {
         data-input
         data-enable-time
         value={deadline}
-        onChange={(date, dateStr) => {
-          console.log(dateStr);
-        }}
-        // onChange={(date) => {
-        //   handleDateChange(new Date(date));
+        // onChange={(date, dateStr) => {
+        //   console.log(dateStr);
         // }}
       >
         <input type="text" placeholder="Select Date..." data-input />
