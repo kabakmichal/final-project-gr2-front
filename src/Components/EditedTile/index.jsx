@@ -27,11 +27,11 @@ export const EditedTile = () => {
     console.log(e.target.value);
   };
   //=====================================
-  const [selectedDate, setSelectedDate] = useState();
+  const [selectedDate, setSelectedDate] = useState("");
 
-  const handleDate = (selectedDate) => {
-    setSelectedDate(selectedDate);
-    console.log(selectedDate);
+  const handleDate = (date) => {
+    setSelectedDate(date);
+    console.log(setSelectedDate(date));
   };
   //=====================================
 

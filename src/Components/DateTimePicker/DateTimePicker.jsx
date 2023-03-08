@@ -2,11 +2,9 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import styles from "./DateTimePicker.module.css";
 import Calendar from "./calendar.svg";
-import React, { useRef, useState } from "react";
+import React from "react";
 
-const DateTimePicker = ({ deadline, handleDateChange }, props) => {
-  const [selectedDate, setSelectedDate] = useState("");
-
+const DateTimePicker = ({ deadline }, props) => {
   const handleChange = (selectedDates) => {
     const selectedDate = selectedDates[0];
 
