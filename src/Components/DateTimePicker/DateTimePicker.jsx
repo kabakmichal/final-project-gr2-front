@@ -2,34 +2,23 @@ import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/material_blue.css";
 import styles from "./DateTimePicker.module.css";
 import Calendar from "./calendar.svg";
-import React from "react";
+import React, { useState } from "react";
 
-const dateContext = React.createContext();
+const DateTimePicker = ({ deadline }, { onChange }, props) => {
+  // const [date, setDate] = useState();
 
-const DateTimePicker = ({ deadline }, props) => {
-  const handleChange = (selectedDates) => {
-    const selectedDate = selectedDates[0];
+  // const handleDateChange = (selectedDates, dateStr) => {
+  //   props.onDateChange(dateStr);
+  // };
 
-    const date = new Date(selectedDate);
-    const formattedDate = date
-      .toLocaleDateString("pl-PL", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      })
-      .replace(/\//g, "-");
+  // const formatDate = (date, dateStr) => {
+  //   console.log(dateStr);
+  // };
 
-    const parts = formattedDate.split(".");
-    const year = parts[2];
-    const day = parts[0];
-
-    parts[0] = year;
-    parts[2] = day;
-
-    const finalDate = parts.join("-");
-
-    localStorage.setItem("date", finalDate);
-  };
+  // const handle = () => {
+  //   handleDateChange();
+  //   formatDate();
+  // };
 
   return (
     <div className={styles.date}>
@@ -54,7 +43,10 @@ const DateTimePicker = ({ deadline }, props) => {
         data-input
         data-enable-time
         value={deadline}
-        onChange={handleChange}
+        // onChange={handle}
+        onChange={(date, dateStr) => {
+          console.log(dateStr);
+        }}
       >
         <input type="text" placeholder="Select Date..." data-input />
         <button data-toggle>

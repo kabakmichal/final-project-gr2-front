@@ -3,14 +3,15 @@ import Select from "react-select";
 import styles from "./CategorySelect.module.css";
 import { ReactComponent as Arrow } from "./arrow.svg";
 
-const CategorySelect = (props) => {
+const CategorySelect = ({ onChange }) => {
+  // const CategorySelect = (props) => {
   const CategoryOptions = [
-    { value: "STUFF", label: "STUFF", bgcolor: "#B9C3C8" },
-    { value: "FAMILY", label: "FAMILY", bgcolor: "#FFE6D3" },
-    { value: "HEALTH", label: "HEALTH", bgcolor: "#CDF7FF" },
-    { value: "LEARNING", label: "LEARNING", bgcolor: "#FFF6C0" },
-    { value: "LEISURE", label: "LEISURE", bgcolor: "#F8D2FF" },
-    { value: "WORK", label: "WORK", bgcolor: "#D3F6CE" },
+    { value: "stuff", label: "STUFF", bgcolor: "#B9C3C8" },
+    { value: "family", label: "FAMILY", bgcolor: "#FFE6D3" },
+    { value: "health", label: "HEALTH", bgcolor: "#CDF7FF" },
+    { value: "learning", label: "LEARNING", bgcolor: "#FFF6C0" },
+    { value: "leisure", label: "LEISURE", bgcolor: "#F8D2FF" },
+    { value: "work", label: "WORK", bgcolor: "#D3F6CE" },
   ];
   const colorStyles = {
     control: (styles) => ({ ...styles }),
@@ -33,7 +34,9 @@ const CategorySelect = (props) => {
     },
   };
   const handleChange = (selectedOption) => {
-    props.onSelection(selectedOption);
+    // updateTodo(selectedOption.value);
+    // console.log(selectedOption.value + "cascasc");
+    // props.onSelection(selectedOption);
   };
 
   return (
@@ -44,7 +47,8 @@ const CategorySelect = (props) => {
           IndicatorSeparator: () => null,
         }}
         options={CategoryOptions}
-        onChange={handleChange}
+        onChange={onChange}
+        // onChange={handleChange}
         styles={colorStyles}
       />
     </div>

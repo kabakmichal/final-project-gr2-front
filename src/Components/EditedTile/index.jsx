@@ -5,51 +5,74 @@ import DifficultSelect from "../DifficultSelect/DifficultSelect";
 import { ReactComponent as Star } from "./star.svg";
 import { ReactComponent as Clear } from "./clear.svg";
 import styles from "./EditedTile.module.css";
+import axios from "../../Api/axios";
 
 export const EditedTile = () => {
-  const [selectedDifficult, setSelectedDifficult] = useState(null);
+  const [values, setValues] = useState({
+    title: "",
+    difficulty: "",
+    date: "2023-03-08",
+    time: "23:00:00",
+    status: "undone",
+    category: "",
+    type: "quest",
+  });
 
-  const handleDifficult = (selectedDifficult) => {
-    setSelectedDifficult(selectedDifficult);
-    console.log(selectedDifficult.value);
+  // const handleDate = (e) => {
+  //   const value = e.target.value;
+  //   setValues((prevState) => ({
+  //     ...prevState,
+  //     date: value,
+  //   }));
+  // };
+  const handleDate = (newDate) => {
+    // const value = e.value;
+    // console.log(value);
+    setValues((prevState) => ({
+      ...prevState,
+      date: newDate,
+    }));
+    // console.log(e);
   };
-  //===================================
-  const newTodo = {};
-  //====================
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const handleCategory = (selectedCategory) => {
-    setSelectedCategory(selectedCategory);
-    console.log(selectedCategory.value);
-  };
-  //=================================================
-  const [inputValue, setInputValue] = useState("");
 
   const handleInput = (e) => {
-    setInputValue(e.target.value);
-    console.log(e.target.value);
-  };
-  //=====================================
-  const [selectedDate, setSelectedDate] = useState("");
-
-  const getDate = () => {
-    const date = localStorage.getItem("date");
-    return date;
-  };
-  //=====================================
-
-  const createTodoObj = () => {
-    const date = getDate();
-    const newTodo = {
-      date: date,
-    };
-    return newTodo;
+    const value = e.target.value;
+    setValues((prevState) => ({
+      ...prevState,
+      title: value,
+    }));
   };
 
-  const sendTodo = () => {
-    const todo = createTodoObj();
-    console.log(todo);
+  const handleDifficultChange = (e) => {
+    const value = e.value;
+    setValues((prevState) => ({
+      ...prevState,
+      difficulty: value,
+    }));
   };
+
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const saveToDB = async () => {
+    return (
+      await axios.post("api/todos", values, {
+        headers: { Authorization: `Bearer ${token}` },
+      }),
+      document.location.reload()
+    );
+  };
+
+  const handleCategoryChange = (e) => {
+    const value = e.value;
+    setValues((prevState) => ({
+      ...prevState,
+      category: value,
+    }));
+  };
+
+  // const sendTodo = () => {
+  //   console.log(values);
+  // };
 
   const cancelCreating = () => {
     console.log("cancel creating");
@@ -60,7 +83,8 @@ export const EditedTile = () => {
       <div className={styles.container}>
         <div className={styles.top_container}>
           <div className={styles.difficulty}>
-            <DifficultSelect onSelection={handleDifficult} />
+            <DifficultSelect onChange={handleDifficultChange} />
+            {/* <DifficultSelect onSelection={handleDifficult} /> */}
           </div>
           <div className={styles.picture}>
             <Star />
@@ -70,22 +94,24 @@ export const EditedTile = () => {
           <p className={styles.tile_title_text}>Creating quest</p>
 
           <input className={styles.input} onChange={handleInput}></input>
-          <DateTimePicker />
+          {/* <input className={styles.input} onChange={handleInput}></input> */}
+          <DateTimePicker onChange={handleDate} />
         </div>
         <div className={styles.bottom_container}>
           <div className={styles.bottom_row}>
-            <CategorySelect onSelection={handleCategory} />
+            <CategorySelect onChange={handleCategoryChange} />
+            {/* <CategorySelect onSelection={handleCategory} /> */}
             <button
               type="button"
               className={styles.cancel_btn}
-              onClick={cancelCreating}
+              // onClick={cancelCreating}
             >
-              <Clear />
+              <Clear onClick={cancelCreating} />
             </button>
             <button
               type="button"
               className={styles.create_btn}
-              onClick={sendTodo}
+              onClick={saveToDB}
             >
               CREATE
             </button>

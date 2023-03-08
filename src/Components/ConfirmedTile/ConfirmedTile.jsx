@@ -54,7 +54,9 @@ export default function ConfirmedTile(props) {
         <div className={styles.tile_date}> {props.date}</div>
         <div className={styles.bottom_container}>
           <div className={`${styles.category} ${styles[props.category]}`}>
-            <span className={styles.category_name}>{props.category} </span>
+            <span className={styles.category_name}>
+              {props.category.toUpperCase()}{" "}
+            </span>
           </div>
           <button onClick={() => deleteTask(props.id)}>X</button>
         </div>
