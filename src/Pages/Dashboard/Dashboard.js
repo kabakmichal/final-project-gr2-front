@@ -7,7 +7,7 @@ import { ReactComponent as TrophyIcon } from "./trophy.svg";
 
 import { ListOfTiles } from "../../Components/ListOfTiles";
 import { AddButton } from "../../Components/AddButton";
-
+import { useNavigate } from "react-router-dom";
 import LogOut from "./logout.svg";
 
 import { EditedTile } from "../../Components/EditedTile";
@@ -18,6 +18,13 @@ export default function Dashboard() {
   // const user = useSelector((state) => state.user);
   const user = "John’s";
   const userDisplay = user.email || "John’s";
+
+const navigate = useNavigate();
+
+  const logOut = () => { 
+    localStorage.clear();
+    navigate("/")
+  }
 
   return (
     <div>
@@ -35,11 +42,9 @@ export default function Dashboard() {
               <TrophyIcon />
             </svg>
           </a>
-          <a className={css.header_logout} href="Dashboard.js">
-            <button type="button" className={css.header_button}>
+            <button onClick={logOut} type="button" className={css.header_button}>
               <img src={LogOut} alt="Logout"></img>
             </button>
-          </a>
         </div>
       </header>
 
