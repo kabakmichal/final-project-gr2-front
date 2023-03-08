@@ -1,6 +1,7 @@
 import { AddButton } from "../../Components/AddButton";
 import React, { useEffect, useState } from "react";
 import { Tile } from "../Tile/Tile.jsx";
+import { DoneSection } from "../DoneSection/DoneSection.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 
@@ -55,11 +56,10 @@ export const ListOfTiles = () => {
   if (objects === null) return <div>Loading...</div>;
   todayQuests = objects.filter((object) => object.date === today);
   tomorrowQuests = objects.filter((object) => object.date === tomorrow);
-
+  let doneQuests = objects.filter((object) => object.status === "done");
   return (
     <>
       <AddButton onButtonClick={addObject}></AddButton>
-
       <div className={styles.today_section}>
         <p className={styles.today_section_text}>TODAY</p>
         <div className={styles.today_section_cards}>
@@ -95,6 +95,7 @@ export const ListOfTiles = () => {
           </ul>
         </div>
       </div>
+      <DoneSection done={doneQuests} />
     </>
   );
 };
