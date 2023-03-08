@@ -35,7 +35,7 @@ export default function Dashboard() {
         </a>
         <div className={css.header_menu_user}>
           <div className={css.user_logo}>{user[0]}</div>
-          <p className={css.user_name}>{user} Quests Log</p>
+          <p className={css.user_name}>{user} Quests Logs</p>
         </div>
         <div className={css.header_icons}>
           <a className={css.header_challenge}>
