@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ConfirmedTile.module.css";
 import { ReactComponent as Star } from "./star.svg";
 import { ReactComponent as Cup } from "./cup.svg";
 
 export default function ConfirmedTile(props) {
+  //   const [edit, setEdit] = useState(false);
+  //   console.log(edit);
+  //   const handleStateChange = () => {
+  //     setEdit(!edit);
+  // onClick();
+  // console.log(edit);
+  //   };
   return (
     <>
       <div
         className={
           props.type === "quest" ? styles.tile_questbg : styles.tile_challengebg
         }
+        onClick={() => props.setEdit(!props.edit)}
       >
         <div className={styles.top_container}>
           {/* <DifficultSelect /> */}
