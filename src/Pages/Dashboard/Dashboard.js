@@ -19,7 +19,6 @@ export default function Dashboard() {
   const user = "John’s";
   const userDisplay = user.email || "John’s";
 
-<<<<<<< HEAD
 const navigate = useNavigate();
 
   const logOut = () => { 
@@ -27,8 +26,6 @@ const navigate = useNavigate();
     navigate("/")
   }
 
-=======
->>>>>>> 794c11f45b6cd2f8b9d87ceca91b8ba83a555a17
   return (
     <div>
       <header>
@@ -50,15 +47,6 @@ const navigate = useNavigate();
             </button>
         </div>
       </header>
-<<<<<<< HEAD
-      <ListOfTiles />
-      <a className={css.add_challenge} href="Dashboard.js">
-        <svg className={css.add_challenge_icon} width="52" height="52">
-          <use href="../public/assets/images/icons.svg#icon-add-button"></use>
-        </svg>
-      </a>
-      {/* <AddButton /> */}
-=======
 
       <div className={css.today_section}>
         <p className={css.today_section_text}>TODAY</p>
@@ -68,7 +56,6 @@ const navigate = useNavigate();
           <EditedTile />
         </div>
       </div>
->>>>>>> 794c11f45b6cd2f8b9d87ceca91b8ba83a555a17
     </div>
   );
 }
