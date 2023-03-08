@@ -13,23 +13,22 @@ export const DoneSection = ({ done }) => {
           Done
         </button>
       </div>
-      <ul className={styles.done_items}>
-        {open ? (
-          <ul className={styles.done_section_list}>
-            {done.map((obj) => (
-              <li key={obj._id} className={styles.done_item}>
-                <Tile
-                  title={obj.title}
-                  date={obj.date}
-                  type={obj.category}
-                  difficultyLevel={obj.difficulty}
-                  isQuest={obj.type === "quest"}
-                />
-              </li>
-            ))}
-          </ul>
-        ) : null}
-      </ul>
+
+      {open ? (
+        <ul className={styles.done_section_list}>
+          {done.map((obj) => (
+            <li key={obj._id} className={styles.done_item}>
+              <Tile
+                title={obj.title}
+                date={obj.date}
+                type={obj.category}
+                difficultyLevel={obj.difficulty}
+                isQuest={obj.type === "quest"}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </>
   );
 };

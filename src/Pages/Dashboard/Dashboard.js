@@ -43,14 +43,8 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <div className={css.today_section}>
-        <p className={css.today_section_text}>TODAY</p>
-        <div className={css.today_section_cards}>
-          {/* <ul className={css.today_section_list}>{array}</ul> */}
-          <ListOfTiles />
-          <EditedTile />
-        </div>
-      </div>
+      <ListOfTiles />
+      <EditedTile />
     </div>
   );
 }
