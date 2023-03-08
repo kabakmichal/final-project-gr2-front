@@ -27,7 +27,12 @@ export const EditedTile = () => {
     console.log(e.target.value);
   };
   //=====================================
+  const [selectedDate, setSelectedDate] = useState();
 
+  const handleDate = (selectedDate) => {
+    setSelectedDate(selectedDate);
+    console.log(selectedDate);
+  };
   //=====================================
 
   const sendTodo = () => {
@@ -55,7 +60,7 @@ export const EditedTile = () => {
             onChange={handleInput}
           ></input>
         </div>
-        <DateTimePicker />
+        <DateTimePicker onSelection={handleDate} />
         <CategorySelect onSelection={handleCategory} />
         <button
           type="button"
