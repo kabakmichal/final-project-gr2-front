@@ -8,7 +8,7 @@ const DifficultOptions = [
   { value: "Hard", label: "🔴 Hard" },
 ];
 
-function DifficultSelect() {
+function DifficultSelect(props) {
   const style = {
     control: (base) => ({
       ...base,
