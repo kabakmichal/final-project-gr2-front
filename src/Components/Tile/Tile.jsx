@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import CategorySelect from "../CategorySelect/CategorySelect";
 // import DateTimePicker from "../DateTimePicker/DateTimePicker";
 // import DifficultSelect from "../DifficultSelect/DifficultSelect";
@@ -9,6 +9,11 @@ import ConfirmedTile from "../ConfirmedTile/ConfirmedTile";
 import { EditedTile } from "../EditedTile";
 
 export const Tile = (props) => {
+  const [edit, setEdit] = useState(false);
+  // const handleStateChange = (edit) => {
+  //   setEdit(!edit);
+  // };
+  console.log(edit);
   return (
     <ConfirmedTile
       id={props.id}
@@ -17,6 +22,9 @@ export const Tile = (props) => {
       type={props.type}
       difficultyLevel={props.difficultyLevel}
       category={props.category}
+      // handleStateChange={handleStateChange}
+      edit={edit}
+      setEdit={setEdit}
     />
     // <>
     //   <div

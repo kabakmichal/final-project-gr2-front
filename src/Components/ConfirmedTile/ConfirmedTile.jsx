@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./ConfirmedTile.module.css";
 import { ReactComponent as Star } from "./star.svg";
 import { ReactComponent as Cup } from "./cup.svg";
 import axios from "../../Api/axios";
 
 export default function ConfirmedTile(props) {
+
   const deleteTask = async (todoId) => {
     // return console.log(todoId);
     try {
@@ -24,6 +25,7 @@ export default function ConfirmedTile(props) {
         className={
           props.type === "quest" ? styles.tile_questbg : styles.tile_challengebg
         }
+        onClick={() => props.setEdit(!props.edit)}
       >
         <div className={styles.top_container}>
           {/* <DifficultSelect /> */}
