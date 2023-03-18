@@ -17,20 +17,14 @@ export const ListOfTiles = () => {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-  const addObject = () => {
-    const newObject = {
-      // title: "New quest",
-      // date: "2023-03-07",
-      // type: "Job",
-      title: "",
-      difficulty: "",
-      date: "2023-03-08",
-      time: "23:00:00",
-      status: "undone",
-      category: "",
-      type: "quest",
-    };
-    setObjects([...objects, newObject]);
+  const [showComponent, setShowComponent] = useState(false);
+
+  const addComponent = () => {
+    setShowComponent(true);
+  };
+
+  const deleteComponent = () => {
+    setShowComponent(false);
   };
 
   let todayQuests = [];
@@ -58,10 +52,11 @@ export const ListOfTiles = () => {
 
   return (
     <>
-      <AddButton onButtonClick={addObject}></AddButton>
+      <AddButton onButtonClick={addComponent}></AddButton>
       <div className={styles.today_section}>
         <p className={styles.today_section_text}>TODAY</p>
         <div className={styles.today_section_cards}>
+          {showComponent && <EditedTile handleCancel={deleteComponent} />}
           <ul className={styles.today_section_list}>
             {todayQuests.map((obj) => (
               <li key={obj._id} className={styles.list_item}>

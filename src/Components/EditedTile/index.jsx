@@ -7,7 +7,7 @@ import { ReactComponent as Clear } from "./clear.svg";
 import styles from "./EditedTile.module.css";
 import axios from "../../Api/axios";
 
-export const EditedTile = () => {
+export const EditedTile = (props) => {
   const [values, setValues] = useState({
     title: "",
     difficulty: "",
@@ -70,9 +70,9 @@ export const EditedTile = () => {
     }));
   };
 
-  // componentWillUnmount=()=>{
-  //   resetHideComponent();
-  // }
+  const cancelCreating = () => {
+    console.log("canceling");
+  };
 
   return (
     <>
@@ -80,7 +80,6 @@ export const EditedTile = () => {
         <div className={styles.top_container}>
           <div className={styles.difficulty}>
             <DifficultSelect onChange={handleDifficultChange} />
-            {/* <DifficultSelect onSelection={handleDifficult} /> */}
           </div>
           <div className={styles.picture}>
             <Star />
@@ -90,19 +89,14 @@ export const EditedTile = () => {
           <p className={styles.tile_title_text}>Creating quest</p>
 
           <input className={styles.input} onChange={handleInput}></input>
-          {/* <input className={styles.input} onChange={handleInput}></input> */}
           <DateTimePicker onChange={handleDate} />
         </div>
         <div className={styles.bottom_container}>
           <div className={styles.bottom_row}>
             <CategorySelect onChange={handleCategoryChange} />
-            {/* <CategorySelect onSelection={handleCategory} /> */}
-            <button
-              type="button"
-              className={styles.cancel_btn}
-              // onClick={cancelCreating}
-            >
-              <Clear onClick={cancelCreating} />
+            <button type="button" className={styles.cancel_btn}>
+              <Clear onClick={props.handleCancel} />
+              {/* <Clear onClick={cancelCreating} /> */}
             </button>
             <button
               type="button"
