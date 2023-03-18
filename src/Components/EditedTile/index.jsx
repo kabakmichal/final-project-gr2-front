@@ -11,29 +11,12 @@ export const EditedTile = (props) => {
   const [values, setValues] = useState({
     title: "",
     difficulty: "",
-    date: "2023-03-08",
-    time: "23:00:00",
+    date: "",
+    time: "",
     status: "undone",
     category: "",
     type: "quest",
   });
-
-  // const handleDate = (e) => {
-  //   const value = e.target.value;
-  //   setValues((prevState) => ({
-  //     ...prevState,
-  //     date: value,
-  //   }));
-  // };
-  const handleDate = (newDate) => {
-    // const value = e.value;
-    // console.log(value);
-    setValues((prevState) => ({
-      ...prevState,
-      date: newDate,
-    }));
-    // console.log(e);
-  };
 
   const handleInput = (e) => {
     const value = e.target.value;
@@ -58,7 +41,8 @@ export const EditedTile = (props) => {
       await axios.post("api/todos", values, {
         headers: { Authorization: `Bearer ${token}` },
       }),
-      document.location.reload()
+      document.location.reload(),
+      console.log(values)
     );
   };
 
@@ -70,8 +54,28 @@ export const EditedTile = (props) => {
     }));
   };
 
-  const cancelCreating = () => {
-    console.log("canceling");
+  const [selectedDate, setSelectedDate] = useState("");
+
+  const getTime = (value) => {
+    // console.log(value.slice(-8));
+    return value.slice(-8);
+  };
+
+  const getDate = (value) => {
+    // console.log(value.slice(0, 10));
+    return value.slice(0, 10);
+  };
+
+  const handleDate = (date, dateStr) => {
+    const formattedDate = dateStr;
+    // setSelectedDate(formattedDate);
+    const justTime = getTime(formattedDate);
+    const justDate = getDate(formattedDate);
+    setValues((prevState) => ({
+      ...prevState,
+      date: justDate,
+      time: justTime,
+    }));
   };
 
   return (
@@ -89,14 +93,16 @@ export const EditedTile = (props) => {
           <p className={styles.tile_title_text}>Creating quest</p>
 
           <input className={styles.input} onChange={handleInput}></input>
-          <DateTimePicker onChange={handleDate} />
+          <DateTimePicker
+            selectedDate={selectedDate}
+            onDateChange={handleDate}
+          />
         </div>
         <div className={styles.bottom_container}>
           <div className={styles.bottom_row}>
             <CategorySelect onChange={handleCategoryChange} />
             <button type="button" className={styles.cancel_btn}>
               <Clear onClick={props.handleCancel} />
-              {/* <Clear onClick={cancelCreating} /> */}
             </button>
             <button
               type="button"
