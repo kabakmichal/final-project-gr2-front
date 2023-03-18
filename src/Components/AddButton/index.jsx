@@ -6,13 +6,13 @@ import Plus from "./plus.svg";
 // import { nanoid } from "@reduxjs/toolkit";
 
 export const AddButton = (props) => {
-  const { onClick } = props;
+  const { onButtonClick } = props;
 
   return (
     <>
       <div className="addBtn">
         <div className={styles.blur}></div>
-        <button type="button" className={styles.btn} onClick={onClick}>
+        <button type="button" className={styles.btn} onClick={onButtonClick}>
           <img src={Plus} alt="Plus icon"></img>
         </button>
       </div>

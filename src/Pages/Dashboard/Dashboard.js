@@ -50,6 +50,7 @@ export default function Dashboard() {
       </header>
 
       <ListOfTiles />
+      <EditedTile />
     </div>
   );
 }
