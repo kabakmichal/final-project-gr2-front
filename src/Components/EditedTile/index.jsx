@@ -36,14 +36,20 @@ export const EditedTile = (props) => {
 
   const token = JSON.parse(localStorage.getItem("token"));
 
-  const saveToDB = async () => {
+  const saveToDo = async () => {
     return (
       await axios.post("api/todos", values, {
         headers: { Authorization: `Bearer ${token}` },
       }),
-      document.location.reload(),
-      console.log(values)
+      saveToLocalStorage(),
+      document.location.reload()
+      // console.log(values)
     );
+  };
+
+  const saveToLocalStorage = () => {
+    const valuesJSON = JSON.stringify(values);
+    localStorage.setItem("newToDo", valuesJSON);
   };
 
   const handleCategoryChange = (e) => {
@@ -57,18 +63,15 @@ export const EditedTile = (props) => {
   const [selectedDate, setSelectedDate] = useState("");
 
   const getTime = (value) => {
-    // console.log(value.slice(-8));
     return value.slice(-8);
   };
 
   const getDate = (value) => {
-    // console.log(value.slice(0, 10));
     return value.slice(0, 10);
   };
 
   const handleDate = (date, dateStr) => {
     const formattedDate = dateStr;
-    // setSelectedDate(formattedDate);
     const justTime = getTime(formattedDate);
     const justDate = getDate(formattedDate);
     setValues((prevState) => ({
@@ -107,7 +110,7 @@ export const EditedTile = (props) => {
             <button
               type="button"
               className={styles.create_btn}
-              onClick={saveToDB}
+              onClick={saveToDo}
             >
               CREATE
             </button>
