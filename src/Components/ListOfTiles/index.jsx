@@ -23,7 +23,7 @@ export const ListOfTiles = () => {
     setShowComponent(true);
   };
 
-  const resetComponent = () => {
+  const deleteComponent = () => {
     setShowComponent(false);
   };
 
@@ -44,9 +44,7 @@ export const ListOfTiles = () => {
   }, []);
 
   if (objects === null) return <div>Loading...</div>;
-  todayQuests = objects.filter(
-    (object) => object.date === today && object.status === "undone"
-  );
+  todayQuests = objects.filter((object) => object.date === today);
   tomorrowQuests = objects.filter(
     (object) => object.date === tomorrow && object.status === "undone"
   );
@@ -54,13 +52,12 @@ export const ListOfTiles = () => {
 
   return (
     <>
-      <AddButton onClick={addComponent}></AddButton>
-
+      <AddButton onButtonClick={addComponent}></AddButton>
       <div className={styles.today_section}>
         <p className={styles.today_section_text}>TODAY</p>
         <div className={styles.today_section_cards}>
+          {showComponent && <EditedTile handleCancel={deleteComponent} />}
           <ul className={styles.today_section_list}>
-            {showComponent && <EditedTile onClose={resetComponent} />}
             {todayQuests.map((obj) => (
               <li key={obj._id} className={styles.list_item}>
                 <Tile
