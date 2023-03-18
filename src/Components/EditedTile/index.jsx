@@ -15,9 +15,9 @@ export const EditedTile = () => {
     console.log("visible component");
   };
 
-  // componentWillUnmount=()=>{
+  // componentWillUnmount = () => {
   //   resetHideComponent();
-  // }
+  // };
 
   return (
     <>
