@@ -36,14 +36,40 @@ export const EditedTile = (props) => {
 
   const token = JSON.parse(localStorage.getItem("token"));
 
+  // const saveToDo = async () => {
+  //   return (
+  //     await axios.post("api/todos", values, {
+  //       headers: { Authorization: `Bearer ${token}` },
+  //     }),
+  //     saveToLocalStorage(),
+  //     document.location.reload()
+  //     // console.log(values)
+  //   );
+  // };
+  const saveToArray = async () =>
+    await axios.get("api/todos", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+  const refreshComponents = () => {
+    props.handleChange();
+  };
+
   const saveToDo = async () => {
     return (
-      await axios.post("api/todos", values, {
-        headers: { Authorization: `Bearer ${token}` },
-      }),
-      saveToLocalStorage(),
-      document.location.reload()
-      // console.log(values)
+      await axios
+        .post("api/todos", values, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        // .then(await saveToArray().then(() => console.log("cos po wyslaniu"))),
+        // .then(await saveToArray().then((res) => setObjects(res.data[0].todoListIds))),
+        .then(
+          await saveToArray().then(
+            // (res) => handleChange()
+            (res) => refreshComponents(res.data[0].todoListIds)
+          )
+        ),
+      saveToLocalStorage()
     );
   };
 
