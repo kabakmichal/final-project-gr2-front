@@ -3,6 +3,7 @@ import CategorySelect from "../CategorySelect/CategorySelect";
 import DateTimePicker from "../DateTimePicker/DateTimePicker";
 import DifficultSelect from "../DifficultSelect/DifficultSelect";
 import { ReactComponent as Star } from "./star.svg";
+import { ReactComponent as Cup } from "./cup.svg";
 import { ReactComponent as Clear } from "./clear.svg";
 import styles from "./EditedTile.module.css";
 import axios from "../../Api/axios";
@@ -17,6 +18,20 @@ export const EditedTile = (props) => {
     category: "",
     type: "quest",
   });
+
+  const handleQuest = () => {
+    setValues((prevState) => ({
+      ...prevState,
+      type: "quest",
+    }));
+  };
+
+  const handleChallenge = () => {
+    setValues((prevState) => ({
+      ...prevState,
+      type: "challenge",
+    }));
+  };
 
   const handleInput = (e) => {
     const value = e.target.value;
@@ -89,7 +104,11 @@ export const EditedTile = (props) => {
             <DifficultSelect onChange={handleDifficultChange} />
           </div>
           <div className={styles.picture}>
-            <Star />
+            {values.type === "quest" ? (
+              <Star onClick={handleChallenge} />
+            ) : (
+              <Cup onClick={handleQuest} />
+            )}
           </div>
         </div>
         <div className={styles.tile_title}>
