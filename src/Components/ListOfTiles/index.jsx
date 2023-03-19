@@ -56,7 +56,12 @@ export const ListOfTiles = () => {
       <div className={styles.today_section}>
         <p className={styles.today_section_text}>TODAY</p>
         <div className={styles.today_section_cards}>
-          {showComponent && <EditedTile handleCancel={deleteComponent} />}
+          {showComponent && (
+            <EditedTile
+              handleCancel={deleteComponent}
+              handleChange={setObjects}
+            />
+          )}
           <ul className={styles.today_section_list}>
             {todayQuests.map((obj) => (
               <li key={obj._id} className={styles.list_item}>
