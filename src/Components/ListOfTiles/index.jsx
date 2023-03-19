@@ -36,11 +36,12 @@ export const ListOfTiles = () => {
       today.slice(0, 8) + "0" + (parseInt(today.slice(8)) + 1).toString();
   else tomorrow = today.slice(0, 8) + (parseInt(today.slice(8)) + 1).toString();
 
+  const loadTiles = async () => {
+    await saveToArray().then((res) => setObjects(res.data[0].todoListIds));
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      await saveToArray().then((res) => setObjects(res.data[0].todoListIds));
-    };
-    fetchData();
+    loadTiles();
   }, []);
 
   if (objects === null) return <div>Loading...</div>;
@@ -50,16 +51,21 @@ export const ListOfTiles = () => {
   );
   let doneQuests = objects.filter((object) => object.status === "done");
 
+  const test = () => {
+    console.log("to jest test");
+  };
+
   return (
     <>
-      <AddButton onButtonClick={addComponent}></AddButton>
+      <AddButton onButtonClick={addComponent} />
       <div className={styles.today_section}>
         <p className={styles.today_section_text}>TODAY</p>
         <div className={styles.today_section_cards}>
           {showComponent && (
             <EditedTile
               handleCancel={deleteComponent}
-              handleChange={setObjects}
+              // handleChange={test}
+              handleChange={loadTiles}
             />
           )}
           <ul className={styles.today_section_list}>
