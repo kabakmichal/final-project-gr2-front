@@ -57,7 +57,7 @@ export const EditedTile = (props) => {
     });
 
   const sendToParent = (value) => {
-    props.handleChange(value);
+    props.handleChange(value).then(props.handleDeleteComponent());
   };
 
   const saveToDo = async () => {

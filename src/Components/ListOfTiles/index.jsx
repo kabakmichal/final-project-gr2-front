@@ -64,8 +64,8 @@ export const ListOfTiles = () => {
           {showComponent && (
             <EditedTile
               handleCancel={deleteComponent}
-              // handleChange={test}
               handleChange={loadTiles}
+              handleDeleteComponent={deleteComponent}
             />
           )}
           <ul className={styles.today_section_list}>
