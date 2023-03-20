@@ -4,7 +4,6 @@ import { Tile } from "../Tile/Tile.jsx";
 import { DoneSection } from "../DoneSection/DoneSection.jsx";
 import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
-
 import { EditedTile } from "../EditedTile";
 
 export const ListOfTiles = () => {

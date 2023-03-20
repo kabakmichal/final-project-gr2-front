@@ -5,21 +5,9 @@ import { EditedTile } from "../EditedTile";
 export const Tile = (props) => {
   const [edit, setEdit] = useState(false);
 
-  const test = {
-    title: "title",
-    category: "learning",
-    data: "today",
-  };
+  const currentTile = JSON.parse(localStorage.getItem("currentToDo"));
 
-  const saveCurrentToDo = () => {
-    const testLocal = JSON.stringify(test);
-    localStorage.setItem("currentToDo", testLocal);
-  };
-
-  const handleEdit = () => {
-    setEdit();
-    // saveCurrentToDo();
-  };
+  // console.log(currentTile);
 
   return !edit ? (
     <ConfirmedTile
@@ -30,19 +18,18 @@ export const Tile = (props) => {
       difficultyLevel={props.difficultyLevel}
       category={props.category}
       edit={edit}
-      // setEdit={handleEdit}
       setEdit={setEdit}
     />
   ) : (
     <EditedTile
-      id={props.id}
-      title={props.title}
-      date={props.date}
-      type={props.type}
-      difficultyLevel={props.difficultyLevel}
-      category={props.category}
-      edit={edit}
-      setEdit={setEdit}
+      id={currentTile.id}
+      title={currentTile.title}
+      date={currentTile.date}
+      type={currentTile.type}
+      difficultyLevel={currentTile.difficultyLevel}
+      category={currentTile.category}
+      // edit={edit}
+      // setEdit={setEdit}
     />
   );
 };

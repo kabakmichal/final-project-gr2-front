@@ -6,7 +6,6 @@ import axios from "../../Api/axios";
 import Plus from "./plus.svg";
 
 export default function ConfirmedTile(props) {
-
   const deleteTask = async (todoId) => {
     // return console.log(todoId);
     try {
@@ -20,13 +19,33 @@ export default function ConfirmedTile(props) {
     }
   };
 
+  const saveCurrentToDo = () => {
+    const currentTodo = {
+      id: props.id,
+      title: props.title,
+      difficulty: props.difficulty,
+      date: props.date,
+      time: props.time,
+      status: props.status,
+      category: props.category,
+      type: props.type,
+    };
+    const testLocal = JSON.stringify(currentTodo);
+    localStorage.setItem("currentToDo", testLocal);
+  };
+
+  const handleEdit = () => {
+    saveCurrentToDo();
+    props.setEdit(!props.edit);
+  };
+
   return (
     <>
       <div
         className={
           props.type === "quest" ? styles.tile_questbg : styles.tile_challengebg
         }
-        onClick={() => props.setEdit(!props.edit)}
+        onClick={() => handleEdit()}
       >
         <div className={styles.top_container}>
           {/* <DifficultSelect /> */}
