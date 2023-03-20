@@ -8,6 +8,8 @@ import { ReactComponent as Clear } from "./clear.svg";
 import styles from "./EditedTile.module.css";
 import axios from "../../Api/axios";
 
+import { DeletingModal } from "../DeletingModal";
+
 export const EditedTile = (props) => {
   const [values, setValues] = useState({
     title: "",
@@ -57,7 +59,7 @@ export const EditedTile = (props) => {
     });
 
   const sendToParent = (value) => {
-    props.handleChange(value).then(props.handleDeleteComponent());
+    props.handleChange(value).then(props.handleCancel());
   };
 
   const saveToDo = async () => {
@@ -109,9 +111,25 @@ export const EditedTile = (props) => {
     }));
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <div className={styles.container}>
+        <DeletingModal
+          isOpen={isOpen}
+          handleClose={handleClose}
+          handleDelete={props.handleCancel}
+          content="Delete this quest?"
+        />
         <div className={styles.top_container}>
           <div className={styles.difficulty}>
             <DifficultSelect onChange={handleDifficultChange} />
@@ -137,7 +155,7 @@ export const EditedTile = (props) => {
           <div className={styles.bottom_row}>
             <CategorySelect onChange={handleCategoryChange} />
             <button type="button" className={styles.cancel_btn}>
-              <Clear onClick={props.handleCancel} />
+              <Clear onClick={handleOpen} />
             </button>
             <button
               type="button"

@@ -1,0 +1,53 @@
+.backdrop {
+  position: fixed;
+  z-index: 1;
+  width: 205px;
+  height: 199px;
+  background: rgba(21, 57, 90, 0.3);
+  border-radius: 10px;
+}
+
+.modal {
+  position: absolute;
+  /* align-items: center; */
+  left: 21px;
+  top: 72px;
+  width: 163px;
+  height: 77px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: -3px -4px 4px rgba(21, 57, 90, 0.03),
+    3px 4px 4px rgba(21, 57, 90, 0.03);
+}
+
+.modal__content {
+  /* align-items: center; */
+  font-size: 10px;
+}
+
+.modal__cancel {
+  color: #24d40c;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.modal__delete {
+  color: #db0938;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.question {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}

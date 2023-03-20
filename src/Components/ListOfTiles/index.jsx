@@ -51,10 +51,6 @@ export const ListOfTiles = () => {
   );
   let doneQuests = objects.filter((object) => object.status === "done");
 
-  const test = () => {
-    console.log("to jest test");
-  };
-
   return (
     <>
       <AddButton onButtonClick={addComponent} />
@@ -65,7 +61,6 @@ export const ListOfTiles = () => {
             <EditedTile
               handleCancel={deleteComponent}
               handleChange={loadTiles}
-              handleDeleteComponent={deleteComponent}
             />
           )}
           <ul className={styles.today_section_list}>
