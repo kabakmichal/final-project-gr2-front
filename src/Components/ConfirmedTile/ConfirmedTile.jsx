@@ -6,12 +6,35 @@ import axios from "../../Api/axios";
 import Plus from "./plus.svg";
 
 export default function ConfirmedTile(props) {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const saveToArray = async () =>
+    await axios.get("api/todos", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+  const sendToParent = (value) => {
+    props.handleChange(value);
+  };
 
   const deleteTask = async (todoId) => {
     // return console.log(todoId);
     try {
-      const token = JSON.parse(localStorage.getItem("token"));
       await axios.delete(`api/todos/${todoId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await axios.get("api/todos", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return sendToParent(data.data[0].todoListIds);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const makeQuestDone = async (todoId) => {
+    try {
+      await axios.put(`api/todos/${todoId}/finished`, null, {
         headers: { Authorization: `Bearer ${token}` },
       });
       document.location.reload();
@@ -37,7 +60,11 @@ export default function ConfirmedTile(props) {
             <p className={styles.difficulty_level}>{props.difficultyLevel}</p>
           </div>
           <div className={styles.picture}>
-            {props.type === "quest" ? <Star /> : <Cup />}
+            {props.type === "quest" ? (
+              <Star onClick={() => makeQuestDone(props.id)} />
+            ) : (
+              <Cup onClick={() => makeQuestDone(props.id)} />
+            )}
           </div>
         </div>
         {props.type === "quest" ? (
