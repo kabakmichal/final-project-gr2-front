@@ -2,14 +2,15 @@ import Select from "react-select";
 import React from "react";
 import { ReactComponent as Arrow } from "./arrow.svg";
 
-const DifficultOptions = [
-  { value: "easy", label: "🟢 Easy" },
-  { value: "normal", label: "🔵 Normal" },
-  { value: "hard", label: "🔴 Hard" },
-];
+function DifficultSelect(props) {
+  const { onChange } = props;
 
-function DifficultSelect({ onChange }) {
-  // function DifficultSelect(props) {
+  const DifficultOptions = [
+    { value: "easy", label: "🟢 Easy" },
+    { value: "normal", label: "🔵 Normal" },
+    { value: "hard", label: "🔴 Hard" },
+  ];
+
   const style = {
     control: (base) => ({
       ...base,
@@ -23,12 +24,18 @@ function DifficultSelect({ onChange }) {
     }),
   };
 
+  const currentTodo = JSON.parse(localStorage.getItem("currentToDo"));
+
   const handleChange = (selectedOption) => {
     // props.onSelection(selectedOption);
   };
   return (
-    <Select options={DifficultOptions} styles={style} onChange={onChange} />
-    // <Select options={DifficultOptions} styles={style} onChange={handleChange} />
+    <Select
+      options={DifficultOptions}
+      styles={style}
+      onChange={onChange}
+      defaultInputValue={currentTodo.difficulty}
+    />
   );
 }
 

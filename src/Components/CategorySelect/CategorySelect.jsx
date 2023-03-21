@@ -3,8 +3,9 @@ import Select from "react-select";
 import styles from "./CategorySelect.module.css";
 import { ReactComponent as Arrow } from "./arrow.svg";
 
-const CategorySelect = ({ onChange }) => {
-  // const CategorySelect = (props) => {
+const CategorySelect = (props) => {
+  const { onChange } = props;
+
   const CategoryOptions = [
     { value: "stuff", label: "STUFF", bgcolor: "#B9C3C8" },
     { value: "family", label: "FAMILY", bgcolor: "#FFE6D3" },
@@ -33,11 +34,9 @@ const CategorySelect = ({ onChange }) => {
       return { ...styles, background: data.bgcolor };
     },
   };
-  const handleChange = (selectedOption) => {
-    // updateTodo(selectedOption.value);
-    // console.log(selectedOption.value + "cascasc");
-    // props.onSelection(selectedOption);
-  };
+  const handleChange = (selectedOption) => {};
+
+  const currentTodo = JSON.parse(localStorage.getItem("currentToDo"));
 
   return (
     <div style={{ width: "115px" }}>
@@ -48,8 +47,8 @@ const CategorySelect = ({ onChange }) => {
         }}
         options={CategoryOptions}
         onChange={onChange}
-        // onChange={handleChange}
         styles={colorStyles}
+        defaultInputValue={currentTodo.category}
       />
     </div>
   );

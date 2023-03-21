@@ -5,9 +5,12 @@ import { EditedTile } from "../EditedTile";
 export const Tile = (props) => {
   const [edit, setEdit] = useState(false);
 
+  const editTrue = () => setEdit(true);
+  const editFalse = () => setEdit(false);
+
   const currentTile = JSON.parse(localStorage.getItem("currentToDo"));
 
-  // console.log(currentTile);
+  // console.log(props);
 
   return !edit ? (
     <ConfirmedTile
@@ -18,13 +21,15 @@ export const Tile = (props) => {
       difficultyLevel={props.difficultyLevel}
       category={props.category}
       edit={edit}
-      setEdit={setEdit}
+      setEdit={editTrue}
     />
   ) : (
     <EditedTile
-      id={currentTile.id}
+      id={currentTile._id}
       title={currentTile.title}
       date={currentTile.date}
+      time={currentTile.time}
+      status={currentTile.status}
       type={currentTile.type}
       difficultyLevel={currentTile.difficultyLevel}
       category={currentTile.category}

@@ -7,6 +7,8 @@ import React from "react";
 const DateTimePicker = (props) => {
   const { selectedDate, onDateChange } = props;
 
+  const currentTodo = JSON.parse(localStorage.getItem("currentToDo"));
+
   return (
     <div className={styles.date}>
       <Flatpickr
@@ -15,6 +17,8 @@ const DateTimePicker = (props) => {
           height: "14px",
           enableTime: true,
           time_24hr: true,
+          // defaultDate: ["2016-10-10", "2016-10-20"],
+          // defaultDate: currentTodo.date,
           minTime:
             new Date().getDate() === new Date(selectedDate).getDate()
               ? new Date().setTime(new Date().getTime())

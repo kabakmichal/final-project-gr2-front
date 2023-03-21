@@ -6,10 +6,9 @@ import axios from "../../Api/axios";
 import Plus from "./plus.svg";
 
 export default function ConfirmedTile(props) {
+  const token = JSON.parse(localStorage.getItem("token"));
   const deleteTask = async (todoId) => {
-    // return console.log(todoId);
     try {
-      const token = JSON.parse(localStorage.getItem("token"));
       await axios.delete(`api/todos/${todoId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -19,24 +18,31 @@ export default function ConfirmedTile(props) {
     }
   };
 
-  const saveCurrentToDo = () => {
-    const currentTodo = {
-      id: props.id,
-      title: props.title,
-      difficulty: props.difficulty,
-      date: props.date,
-      time: props.time,
-      status: props.status,
-      category: props.category,
-      type: props.type,
-    };
-    const testLocal = JSON.stringify(currentTodo);
-    localStorage.setItem("currentToDo", testLocal);
+  const saveCurrentToDo = async (todoId) => {
+    try {
+      await axios
+        .get(`api/todos`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) =>
+          localStorage.setItem(
+            "currentToDo",
+            JSON.stringify(
+              res.data[0].todoListIds.find((list) => list._id === todoId)
+            )
+          )
+        );
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleEdit = () => {
-    saveCurrentToDo();
-    props.setEdit(!props.edit);
+  const handleSetEdit = () => props.setEdit(!props.edit);
+  // const handleSetEdit = async () => await props.setEdit(!props.edit);
+
+  const handleEdit = async () => {
+    await saveCurrentToDo(props.id);
+    await handleSetEdit();
   };
 
   return (
@@ -48,7 +54,6 @@ export default function ConfirmedTile(props) {
         onClick={() => handleEdit()}
       >
         <div className={styles.top_container}>
-          {/* <DifficultSelect /> */}
           <div className={styles.difficulty}>
             <span
               className={`${styles.dot} ${styles[props.difficultyLevel]}`}
