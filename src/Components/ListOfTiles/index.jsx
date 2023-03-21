@@ -45,7 +45,9 @@ export const ListOfTiles = () => {
   }, []);
 
   if (objects === null) return <div>Loading...</div>;
-  todayQuests = objects.filter((object) => object.date === today);
+  todayQuests = objects.filter(
+    (object) => object.date === today && object.status === "undone"
+  );
   tomorrowQuests = objects.filter(
     (object) => object.date === tomorrow && object.status === "undone"
   );
@@ -73,6 +75,7 @@ export const ListOfTiles = () => {
                   difficultyLevel={obj.difficulty}
                   type={obj.type}
                   category={obj.category}
+                  onClick={loadTiles}
                 />
               </li>
             ))}
