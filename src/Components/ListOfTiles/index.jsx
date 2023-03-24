@@ -15,7 +15,7 @@ export const ListOfTiles = () => {
     await axios.get("api/todos", {
       headers: { Authorization: `Bearer ${token}` },
     });
-  // .then((res) => console.log(res.data[0].todoListIds));
+
   const [showComponent, setShowComponent] = useState(false);
 
   const addComponent = () => {

@@ -6,13 +6,20 @@ import { ReactComponent as Arrow } from "./arrow.svg";
 const CategorySelect = (props) => {
   const { onChange } = props;
 
-  const CategoryOptions = [
-    { value: "stuff", label: "STUFF", bgcolor: "#B9C3C8" },
-    { value: "family", label: "FAMILY", bgcolor: "#FFE6D3" },
-    { value: "health", label: "HEALTH", bgcolor: "#CDF7FF" },
-    { value: "learning", label: "LEARNING", bgcolor: "#FFF6C0" },
-    { value: "leisure", label: "LEISURE", bgcolor: "#F8D2FF" },
-    { value: "work", label: "WORK", bgcolor: "#D3F6CE" },
+  const categoryOptions = [
+    //   { value: "stuff", label: "STUFF", bgcolor: "#B9C3C8" },
+    //   { value: "family", label: "FAMILY", bgcolor: "#FFE6D3" },
+    //   { value: "health", label: "HEALTH", bgcolor: "#CDF7FF" },
+    //   { value: "learning", label: "LEARNING", bgcolor: "#FFF6C0" },
+    //   { value: "leisure", label: "LEISURE", bgcolor: "#F8D2FF" },
+    //   { value: "work", label: "WORK", bgcolor: "#D3F6CE" },
+    // ];
+    { value: "stuff", label: "STUFF" },
+    { value: "family", label: "FAMILY" },
+    { value: "health", label: "HEALTH" },
+    { value: "learning", label: "LEARNING" },
+    { value: "leisure", label: "LEISURE" },
+    { value: "work", label: "WORK" },
   ];
   const colorStyles = {
     control: (styles) => ({ ...styles }),
@@ -45,10 +52,11 @@ const CategorySelect = (props) => {
           DropdownIndicator: () => <Arrow />,
           IndicatorSeparator: () => null,
         }}
-        options={CategoryOptions}
+        options={categoryOptions}
         onChange={onChange}
         styles={colorStyles}
         defaultInputValue={currentTodo.category}
+        // defaultInputValue={currentTodo.category}
       />
     </div>
   );
