@@ -148,7 +148,7 @@ export const EditedTile = (props) => {
           <input
             className={styles.input}
             onChange={handleInput}
-            value={props.title}
+            value={props.title || ""}
           ></input>
           <DateTimePicker
             selectedDate={selectedDate}

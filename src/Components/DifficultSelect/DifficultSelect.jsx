@@ -34,7 +34,7 @@ function DifficultSelect(props) {
       options={DifficultOptions}
       styles={style}
       onChange={onChange}
-      defaultInputValue={currentTodo.difficulty}
+      defaultInputValue={currentTodo.difficulty || DifficultOptions.label}
     />
   );
 }

@@ -55,7 +55,7 @@ const CategorySelect = (props) => {
         options={categoryOptions}
         onChange={onChange}
         styles={colorStyles}
-        defaultInputValue={currentTodo.category}
+        defaultInputValue={currentTodo.category || categoryOptions.label}
         // defaultInputValue={currentTodo.category}
       />
     </div>
