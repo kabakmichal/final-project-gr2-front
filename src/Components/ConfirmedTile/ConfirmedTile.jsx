@@ -8,17 +8,7 @@ import Plus from "./plus.svg";
 export default function ConfirmedTile(props) {
   const token = JSON.parse(localStorage.getItem("token"));
 
-  const saveToArray = async () =>
-    await axios.get("api/todos", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-
-  const sendToParent = (value) => {
-    props.handleChange(value);
-  };
-
   const deleteTask = async (todoId) => {
-    // return console.log(todoId);
     try {
       await axios.delete(`api/todos/${todoId}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -26,7 +16,7 @@ export default function ConfirmedTile(props) {
       const data = await axios.get("api/todos", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      return sendToParent(data.data[0].todoListIds);
+      // return sendToParent(data.data[0].todoListIds);
     } catch (err) {
       console.log(err);
     }
@@ -43,16 +33,42 @@ export default function ConfirmedTile(props) {
     }
   };
 
+  const saveCurrentToDo = async (todoId) => {
+    try {
+      await axios
+        .get(`api/todos`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) =>
+          localStorage.setItem(
+            "currentToDo",
+            JSON.stringify(
+              res.data[0].todoListIds.find((list) => list._id === todoId)
+            )
+          )
+        );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSetEdit = () => props.setEdit(!props.edit);
+  // const handleSetEdit = async () => await props.setEdit(!props.edit);
+
+  const handleEdit = async () => {
+    await saveCurrentToDo(props.id);
+    await handleSetEdit();
+  };
+
   return (
     <>
       <div
         className={
           props.type === "quest" ? styles.tile_questbg : styles.tile_challengebg
         }
-        onClick={() => props.setEdit(!props.edit)}
+        onClick={() => handleEdit()}
       >
         <div className={styles.top_container}>
-          {/* <DifficultSelect /> */}
           <div className={styles.difficulty}>
             <span
               className={`${styles.dot} ${styles[props.difficultyLevel]}`}

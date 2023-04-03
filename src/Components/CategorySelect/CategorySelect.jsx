@@ -3,15 +3,23 @@ import Select from "react-select";
 import styles from "./CategorySelect.module.css";
 import { ReactComponent as Arrow } from "./arrow.svg";
 
-const CategorySelect = ({ onChange }) => {
-  // const CategorySelect = (props) => {
-  const CategoryOptions = [
-    { value: "stuff", label: "STUFF", bgcolor: "#B9C3C8" },
-    { value: "family", label: "FAMILY", bgcolor: "#FFE6D3" },
-    { value: "health", label: "HEALTH", bgcolor: "#CDF7FF" },
-    { value: "learning", label: "LEARNING", bgcolor: "#FFF6C0" },
-    { value: "leisure", label: "LEISURE", bgcolor: "#F8D2FF" },
-    { value: "work", label: "WORK", bgcolor: "#D3F6CE" },
+const CategorySelect = (props) => {
+  const { onChange } = props;
+
+  const categoryOptions = [
+    //   { value: "stuff", label: "STUFF", bgcolor: "#B9C3C8" },
+    //   { value: "family", label: "FAMILY", bgcolor: "#FFE6D3" },
+    //   { value: "health", label: "HEALTH", bgcolor: "#CDF7FF" },
+    //   { value: "learning", label: "LEARNING", bgcolor: "#FFF6C0" },
+    //   { value: "leisure", label: "LEISURE", bgcolor: "#F8D2FF" },
+    //   { value: "work", label: "WORK", bgcolor: "#D3F6CE" },
+    // ];
+    { value: "stuff", label: "STUFF" },
+    { value: "family", label: "FAMILY" },
+    { value: "health", label: "HEALTH" },
+    { value: "learning", label: "LEARNING" },
+    { value: "leisure", label: "LEISURE" },
+    { value: "work", label: "WORK" },
   ];
   const colorStyles = {
     control: (styles) => ({ ...styles }),
@@ -33,11 +41,9 @@ const CategorySelect = ({ onChange }) => {
       return { ...styles, background: data.bgcolor };
     },
   };
-  const handleChange = (selectedOption) => {
-    // updateTodo(selectedOption.value);
-    // console.log(selectedOption.value + "cascasc");
-    // props.onSelection(selectedOption);
-  };
+  const handleChange = (selectedOption) => {};
+
+  const currentTodo = JSON.parse(localStorage.getItem("currentToDo"));
 
   return (
     <div style={{ width: "115px" }}>
@@ -46,10 +52,11 @@ const CategorySelect = ({ onChange }) => {
           DropdownIndicator: () => <Arrow />,
           IndicatorSeparator: () => null,
         }}
-        options={CategoryOptions}
+        options={categoryOptions}
         onChange={onChange}
-        // onChange={handleChange}
         styles={colorStyles}
+        defaultInputValue={currentTodo.category || categoryOptions.label}
+        // defaultInputValue={currentTodo.category}
       />
     </div>
   );

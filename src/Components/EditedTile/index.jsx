@@ -145,7 +145,11 @@ export const EditedTile = (props) => {
         <div className={styles.tile_title}>
           <p className={styles.tile_title_text}>Creating quest</p>
 
-          <input className={styles.input} onChange={handleInput}></input>
+          <input
+            className={styles.input}
+            onChange={handleInput}
+            value={props.title || ""}
+          ></input>
           <DateTimePicker
             selectedDate={selectedDate}
             onDateChange={handleDate}

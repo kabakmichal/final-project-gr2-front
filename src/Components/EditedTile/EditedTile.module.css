@@ -35,18 +35,21 @@
   width: 80%;
   border-radius: 0;
   border-bottom: 1px solid #00d7ff;
+  outline: none;
 }
 
 .cancel_btn {
   color: red;
   background: transparent;
   width: 20px;
+  cursor: pointer;
 }
 
 .create_btn {
   background: transparent;
   color: blue;
   width: 70px;
+  cursor: pointer;
 }
 
 .tile_title {
