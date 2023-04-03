@@ -16,7 +16,7 @@ export default function ConfirmedTile(props) {
       const data = await axios.get("api/todos", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      return sendToParent(data.data[0].todoListIds);
+      // return sendToParent(data.data[0].todoListIds);
     } catch (err) {
       console.log(err);
     }
