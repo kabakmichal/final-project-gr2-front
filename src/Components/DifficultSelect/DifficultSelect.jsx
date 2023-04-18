@@ -1,5 +1,6 @@
 import Select from "react-select";
 import React from "react";
+import css from "./DifficultSelect.module.css";
 import { ReactComponent as Arrow } from "./arrow.svg";
 
 const DifficultOptions = [
@@ -20,6 +21,12 @@ function DifficultSelect({ onChange }) {
       marginLeft: "-20px",
       backgroundImage: "none",
       textShadow: "none",
+    }),
+    option: (base, state) => ({
+      ...base,
+      fontSize: "11px",
+      color: state.isSelected ? "#282828" : "#B9C3C8",
+      background: state.isSelected ? "rgba(185, 195, 200, 0.2)" : "white",
     }),
   };
 

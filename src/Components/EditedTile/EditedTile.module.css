@@ -112,3 +112,8 @@
   color: #00d7ff;
   padding-right: 21px;
 }
+
+.create_btn:hover,
+.cancel_btn:hover {
+  cursor: pointer;
+}
