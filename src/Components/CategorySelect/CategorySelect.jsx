@@ -25,9 +25,10 @@ const CategorySelect = (props) => {
     control: (styles) => ({ ...styles }),
     control: (base) => ({
       ...base,
+
       border: 0,
       boxShadow: "none",
-      fontSize: 11,
+      fontSize: "11px",
       borderRadius: "0px 15px 15px 0px",
       backgroundColor: "wheat",
       minHeight: "25px",
@@ -38,7 +39,12 @@ const CategorySelect = (props) => {
       paddingRight: "10px",
     }),
     option: (styles, { data, isFocus, isSelected }) => {
-      return { ...styles, background: data.bgcolor };
+      return {
+        ...styles,
+        background: isSelected ? data.bgcolor : "white",
+        fontSize: "11px",
+        color: "#282828",
+      };
     },
   };
   const handleChange = (selectedOption) => {};
