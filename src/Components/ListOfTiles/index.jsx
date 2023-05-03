@@ -6,6 +6,8 @@ import styles from "./ListOfTiles.module.css";
 import axios from "../../Api/axios";
 import { EditedTile } from "../EditedTile";
 
+// import { loadTiles } from "../../functions/functions";
+
 export const ListOfTiles = () => {
   const [objects, setObjects] = useState([]);
 
@@ -35,8 +37,8 @@ export const ListOfTiles = () => {
       today.slice(0, 8) + "0" + (parseInt(today.slice(8)) + 1).toString();
   else tomorrow = today.slice(0, 8) + (parseInt(today.slice(8)) + 1).toString();
 
-  const loadTiles = async () => {
-    await saveToArray().then((res) => setObjects(res.data[0].todoListIds));
+  const loadTiles = () => {
+    saveToArray().then((res) => setObjects(res.data[0].todoListIds));
   };
 
   useEffect(() => {
@@ -52,6 +54,8 @@ export const ListOfTiles = () => {
   );
   let doneQuests = objects.filter((object) => object.status === "done");
 
+  const test = () => console.log("test");
+
   return (
     <>
       <AddButton onButtonClick={addComponent} />
@@ -60,8 +64,10 @@ export const ListOfTiles = () => {
         <div className={styles.today_section_cards}>
           {showComponent && (
             <EditedTile
+              handleChange={test}
+              // handleChange={setObjects}
+              // handleChange={loadTiles}
               handleCancel={deleteComponent}
-              handleChange={loadTiles}
             />
           )}
           <ul className={styles.today_section_list}>

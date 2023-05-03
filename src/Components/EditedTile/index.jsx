@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CategorySelect from "../CategorySelect/CategorySelect";
 import DateTimePicker from "../DateTimePicker/DateTimePicker";
 import DifficultSelect from "../DifficultSelect/DifficultSelect";
+import { TitleInput } from "../TitleInput";
 import { ReactComponent as Star } from "./star.svg";
 import { ReactComponent as Cup } from "./cup.svg";
 import { ReactComponent as Clear } from "./clear.svg";
@@ -9,6 +10,8 @@ import styles from "./EditedTile.module.css";
 import axios from "../../Api/axios";
 
 import { DeletingModal } from "../DeletingModal";
+
+import { loadTiles } from "../../functions/functions";
 
 export const EditedTile = (props) => {
   const [values, setValues] = useState({
@@ -35,14 +38,6 @@ export const EditedTile = (props) => {
     }));
   };
 
-  const handleInput = (e) => {
-    const value = e.target.value;
-    setValues((prevState) => ({
-      ...prevState,
-      title: value,
-    }));
-  };
-
   const handleDifficultChange = (e) => {
     const value = e.value;
     setValues((prevState) => ({
@@ -58,22 +53,33 @@ export const EditedTile = (props) => {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-  const sendToParent = (value) => {
-    props.handleChange(value).then(props.handleCancel());
+  const { handleChange, handleCancel } = props;
+
+  const sendToParent = () => {
+    // handleChange().then(handleCancel());
+    // props.handleChange(value).then(props.handleCancel());
   };
 
+  const getId = () => localStorage.getItem("currentToDoID");
+
+  const test = () => console.log(handleChange());
+
   const saveToDo = async () => {
+    const id = getId();
     return (
-      await axios
-        .post("api/todos", values, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then(
-          await saveToArray().then((res) =>
-            sendToParent(res.data[0].todoListIds)
-          )
-        ),
+      // console.log(values),
+      await axios.put(`api/todos/${id}`, values, {
+        headers: { Authorization: `Bearer ${token}` },
+      }),
+      // .then(
+      //   await saveToArray().then((res) =>
+      //     sendToParent(res.data[0].todoListIds)
+      //   handleChange()
+      // ),
+      // ),
       saveToLocalStorage()
+      // loadTiles(handleChange)
+      // test()
     );
   };
 
@@ -121,6 +127,16 @@ export const EditedTile = (props) => {
     setIsOpen(false);
   };
 
+  const [title, setTitle] = useState(props.title || "");
+
+  const handleTitleChange = (value) => {
+    setTitle(value);
+    setValues((prevState) => ({
+      ...prevState,
+      title: value,
+    }));
+  };
+
   return (
     <>
       <div className={styles.container}>
@@ -145,11 +161,8 @@ export const EditedTile = (props) => {
         <div className={styles.tile_title}>
           <p className={styles.tile_title_text}>Creating quest</p>
 
-          <input
-            className={styles.input}
-            onChange={handleInput}
-            value={props.title || ""}
-          ></input>
+          <TitleInput value={title} onChange={handleTitleChange} />
+
           <DateTimePicker
             selectedDate={selectedDate}
             onDateChange={handleDate}
@@ -164,7 +177,8 @@ export const EditedTile = (props) => {
             <button
               type="button"
               className={styles.create_btn}
-              onClick={saveToDo}
+              onClick={test}
+              // onClick={saveToDo}
             >
               CREATE
             </button>

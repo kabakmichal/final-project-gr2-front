@@ -55,9 +55,16 @@ export default function ConfirmedTile(props) {
   const handleSetEdit = () => props.setEdit(!props.edit);
   // const handleSetEdit = async () => await props.setEdit(!props.edit);
 
+  const saveCurrentToDoID = async () => {
+    const currentToDo = JSON.parse(localStorage.getItem("currentToDo"));
+    const currentId = currentToDo._id;
+    localStorage.setItem("currentToDoID", currentId);
+  };
+
   const handleEdit = async () => {
     await saveCurrentToDo(props.id);
     await handleSetEdit();
+    await saveCurrentToDoID();
   };
 
   return (
